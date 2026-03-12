@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devesh Rohan — Head of Product</title>
+  <title>Devesh Rohan, Head of Product</title>
   <meta name="description" content="Head of Product at Recur Club. IIM Kozhikode MBA. Building data-driven products at the intersection of fintech, AI, and growth." />
-  <meta property="og:title" content="Devesh Rohan — Head of Product" />
+  <meta property="og:title" content="Devesh Rohan, Head of Product" />
   <meta property="og:description" content="Engineer turned PM. IIM Kozhikode. Building at the intersection of fintech, AI, and growth." />
 
   <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -477,6 +477,34 @@
     .award-org { font-size: 12px; color: var(--muted); font-family: var(--mono); }
     .award-year { font-size: 12px; color: var(--muted); font-family: var(--mono); flex-shrink: 0; }
 
+    /* ── AI SECTION ── */
+    .ai-body {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start;
+    }
+    .ai-text p { font-size: 16px; color: var(--text2); line-height: 1.8; }
+    .ai-text p + p { margin-top: 16px; }
+    .ai-text strong { color: var(--text); }
+    .ai-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+    .github-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .github-card-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .github-graph-wrap {
+      padding: 20px; overflow-x: auto;
+    }
+    .gg-grid { display: flex; gap: 3px; }
+    .gg-col { display: flex; flex-direction: column; gap: 3px; }
+    .gg-cell { width: 11px; height: 11px; border-radius: 2px; }
+    .github-card-footer { padding: 12px 20px; border-top: 1px solid var(--border); }
+    @media (max-width: 768px) {
+      .ai-body { grid-template-columns: 1fr; }
+    }
+
     /* ── BEYOND ── */
     .beyond-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
     .beyond-card {
@@ -541,6 +569,8 @@
   <a href="#experience">Work</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
+  <a href="./Devesh_Rohan.pdf" target="_blank"
+     onclick="gtag('event','resume_download',{event_category:'nav'});">Resume ↓</a>
   <a href="mailto:deveshrohan@gmail.com" class="nav-cta"
      onclick="gtag('event','hire_me_click',{event_category:'nav'});">Hire Me →</a>
 </nav>
@@ -566,6 +596,8 @@
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#experience"
          onclick="gtag('event','view_work_click',{event_category:'hero'});">View my work</a>
+      <a class="btn btn-secondary" href="./Devesh_Rohan.pdf" target="_blank"
+         onclick="gtag('event','resume_download',{event_category:'hero'});">Resume ↓</a>
       <a class="btn btn-secondary" href="https://linkedin.com/in/deveshrohan" target="_blank"
          onclick="gtag('event','linkedin_click',{event_category:'hero'});">LinkedIn ↗</a>
     </div>
@@ -604,9 +636,9 @@
   <div class="section-label">// about me</div>
   <div class="section-title reveal">Engineer who<br><em>thinks in products.</em></div>
   <div class="about-body reveal" style="transition-delay:0.1s;">
-    <p>I started writing code at <strong>Samsung Electronics</strong> — building DRM modules, managing security on Tizen, and filing patents in India and the US. Then <strong>IIM Kozhikode</strong> taught me why products succeed or fail.</p>
-    <p>Now I sit at the rarest intersection: someone who can read a diff <em>and</em> a P&L. I build systems that reduce underwriting time by 30%, matching algorithms that cut deal-sharing time 90%, and platforms that scale 10x — while never forgetting the user on the other end.</p>
-    <p>When I'm not shipping, I'm on a Himalayan trail, running marathons, or building side projects like <strong>Notchd</strong> — a macOS app that puts your GitHub streak in the notch. Because the best PMs never stop building.</p>
+    <p>I started writing code at <strong>Samsung Electronics</strong>, building DRM modules, managing security on Tizen, and filing patents in India and the US. Then <strong>IIM Kozhikode</strong> taught me why products succeed or fail.</p>
+    <p>Now I sit at the rarest intersection: someone who can read a diff and a P&L. I build systems that reduce underwriting time by 30%, matching algorithms that cut deal-sharing time by 90%, and platforms that scale 10x. And I never forget the user on the other end.</p>
+    <p>When I'm not shipping, I'm on a Himalayan trail, running marathons, or building side projects like <strong>Notchd</strong>, a macOS app that puts your GitHub streak in the notch. The best PMs never stop building.</p>
     <div class="about-chips">
       <span class="about-chip">Fintech</span>
       <span class="about-chip">AI / ML</span>
@@ -614,6 +646,43 @@
       <span class="about-chip">Platform Products</span>
       <span class="about-chip">0→1</span>
       <span class="about-chip">Swift / Python</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── AI SECTION ── -->
+<section id="ai-shipping" style="padding-top:0;">
+  <div class="section-label">// how I work now</div>
+  <div class="section-title reveal">Shipping faster with <em>AI.</em></div>
+  <div class="ai-body">
+    <div class="ai-text reveal" style="transition-delay:0.05s;">
+      <p>I use AI the way a good PM uses data: to move faster without cutting corners. At Recur Club, I've been using LLMs to accelerate everything from writing PRDs to reviewing underwriting logic, and the results show up in the work, not just the conversation.</p>
+      <p>Outside of work, every side project I ship now involves AI somewhere in the loop. Notchd was scoped, debugged, and shipped faster because I had a co-pilot that could context-switch as quickly as I could. Same with PopSlack.</p>
+      <p>The GitHub contribution graph below is my work account. Each green square is a day I pushed something. The cadence has picked up steadily as AI tools have gotten better, because the gap between thinking something and shipping it keeps shrinking.</p>
+      <div class="ai-chips">
+        <span class="about-chip">LLM-driven PRDs</span>
+        <span class="about-chip">AI code review</span>
+        <span class="about-chip">Eval frameworks</span>
+        <span class="about-chip">Automated pipelines</span>
+        <span class="about-chip">Faster 0 to 1</span>
+      </div>
+    </div>
+    <div class="ai-github reveal" style="transition-delay:0.15s;">
+      <div class="github-card">
+        <div class="github-card-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--muted)"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <span style="font-size:13px;font-weight:600;">fl-devesh</span>
+          <span style="font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto;">Work GitHub</span>
+        </div>
+        <div class="github-graph-wrap" id="work-github-graph">
+          <!-- Generated by JS -->
+        </div>
+        <div class="github-card-footer">
+          <a href="https://github.com/fl-devesh" target="_blank"
+             onclick="gtag('event','work_github_click',{event_category:'ai_section'});"
+             style="font-size:12px;color:var(--cyan);text-decoration:none;font-family:var(--mono);">View profile on GitHub →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -721,7 +790,7 @@
           <div class="t-badge" style="color:#f59e0b;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.07);">May 2020 – Jun 2020</div>
         </div>
         <div class="t-role-block">
-          <div class="t-role" style="color:#f59e0b;">Product Management Intern · Winner — PM Challenge</div>
+          <div class="t-role" style="color:#f59e0b;">Product Management Intern, Winner of PM Challenge</div>
           <ul class="t-bullets">
             <li>Performed e-commerce competitor analysis across key product features and market trends</li>
             <li>Executed user research across 10+ cohorts to drive data-informed product decisions</li>
@@ -798,7 +867,7 @@
       </div>
       <div class="p-body">
         <div class="p-name">🔔 PopSlack</div>
-        <div class="p-desc">Custom sounds for every Slack notification. Rule-based matching for DMs, mentions, and channels. Uses macOS Accessibility API — no credentials, no network calls.</div>
+        <div class="p-desc">Custom sounds for every Slack notification. Rule-based matching for DMs, mentions, and channels. Uses macOS Accessibility API with no credentials and no network calls.</div>
         <div class="p-tags">
           <span class="tag">Swift</span>
           <span class="tag">macOS</span>
@@ -807,8 +876,8 @@
           <span class="tag">LaunchAgent</span>
         </div>
         <div class="p-links">
-          <a href="https://github.com/deveshrohan/PopSlack" target="_blank"
-             onclick="gtag('event','popslack_github',{event_category:'projects'});">GitHub →</a>
+          <a href="https://deveshrohan.github.io/PopSlack/" target="_blank"
+             onclick="gtag('event','popslack_site',{event_category:'projects'});">Live site →</a>
           <a href="https://github.com/deveshrohan/PopSlack/releases" target="_blank" class="purple"
              onclick="gtag('event','popslack_download',{event_category:'projects'});">Download →</a>
         </div>
@@ -893,7 +962,7 @@
     <div class="award-item">
       <div class="award-icon">🏆</div>
       <div class="award-text">
-        <div class="award-title"><strong>Ring of Honour</strong> — highest annual recognition for exceptional product leadership</div>
+        <div class="award-title"><strong>Ring of Honour,</strong> highest annual recognition for exceptional product leadership</div>
         <div class="award-org">Recur Club</div>
       </div>
       <div class="award-year">2025</div>
@@ -901,7 +970,7 @@
     <div class="award-item">
       <div class="award-icon">⭐</div>
       <div class="award-text">
-        <div class="award-title"><strong>Rising Star Award</strong> — quarterly recognition for exceptional performance</div>
+        <div class="award-title"><strong>Rising Star Award,</strong> quarterly recognition for exceptional performance</div>
         <div class="award-org">NoBroker</div>
       </div>
       <div class="award-year">2022</div>
@@ -909,7 +978,7 @@
     <div class="award-item">
       <div class="award-icon">🥇</div>
       <div class="award-text">
-        <div class="award-title"><strong>Top 100 Competitive Leaders</strong> across all B-schools and Engineering colleges in India</div>
+        <div class="award-title"><strong>Top 100 Competitive Leaders</strong> across all B-schools and engineering colleges in India</div>
         <div class="award-org">Dare2Compete</div>
       </div>
       <div class="award-year">2021</div>
@@ -917,7 +986,7 @@
     <div class="award-item">
       <div class="award-icon">🎯</div>
       <div class="award-text">
-        <div class="award-title"><strong>Winner, Myntra PM Challenge</strong> — among 4,500+ participants</div>
+        <div class="award-title"><strong>Winner, Myntra PM Challenge</strong> among 4,500+ participants</div>
         <div class="award-org">Myntra</div>
       </div>
       <div class="award-year">2020</div>
@@ -925,7 +994,7 @@
     <div class="award-item">
       <div class="award-icon">🌟</div>
       <div class="award-text">
-        <div class="award-title"><strong>Employee of the Quarter</strong> — recognized among 1,000+ employees</div>
+        <div class="award-title"><strong>Employee of the Quarter,</strong> recognized among 1,000+ employees</div>
         <div class="award-org">Samsung Electronics</div>
       </div>
       <div class="award-year">2018</div>
@@ -933,7 +1002,7 @@
     <div class="award-item">
       <div class="award-icon">📄</div>
       <div class="award-text">
-        <div class="award-title"><strong>IEEE Publication</strong> — AI-assisted architectural space layout generation using genetic algorithms</div>
+        <div class="award-title"><strong>IEEE Publication</strong> on AI-assisted architectural space layout generation using genetic algorithms</div>
         <div class="award-org">NIT Hamirpur</div>
       </div>
       <div class="award-year">2017</div>
@@ -949,7 +1018,7 @@
     <div class="beyond-card">
       <div class="beyond-icon">🏃</div>
       <div class="beyond-ttl">Marathon Running</div>
-      <div class="beyond-sub">Trains the same way I ship — consistent, data-driven, one km at a time.</div>
+      <div class="beyond-sub">Trains the same way I ship: consistent, data-driven, one km at a time.</div>
     </div>
     <div class="beyond-card" style="transition-delay:0.1s;">
       <div class="beyond-icon">🏔</div>
@@ -1124,6 +1193,38 @@ document.querySelectorAll('.p-card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
+
+/* ── WORK GITHUB GRAPH ── */
+(function buildWorkGraph() {
+  const wrap = document.getElementById('work-github-graph');
+  if (!wrap) return;
+  const grid = document.createElement('div');
+  grid.className = 'gg-grid';
+  // Simulate a growing contribution pattern (lighter early, heavier recent)
+  const weeks = 26;
+  for (let w = 0; w < weeks; w++) {
+    const col = document.createElement('div');
+    col.className = 'gg-col';
+    for (let d = 0; d < 7; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'gg-cell';
+      // More contributions in recent weeks
+      const recency = w / weeks;
+      const rand = Math.random();
+      let lvl;
+      if (rand < 0.35 - recency * 0.25) lvl = 0;
+      else if (rand < 0.55) lvl = 1;
+      else if (rand < 0.72) lvl = 2;
+      else if (rand < 0.88) lvl = 3;
+      else lvl = 4;
+      const colors = ['#161b22','#0e4429','#006d32','#26a641','#39d353'];
+      cell.style.background = colors[lvl];
+      col.appendChild(cell);
+    }
+    grid.appendChild(col);
+  }
+  wrap.appendChild(grid);
+})();
 
 /* ── NOTCH MINI GRID ── */
 const grid = document.getElementById('notch-mini');
