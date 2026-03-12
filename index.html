@@ -543,6 +543,53 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── GLOBAL DOT GRID BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    /* ── FLOATING SVG SHAPES (HERO) ── */
+    .hero-shapes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+    .hs { position: absolute; opacity: 0.12; }
+    .hs-1 { top: 15%; left: 8%; animation: float1 9s ease-in-out infinite; }
+    .hs-2 { top: 25%; right: 10%; animation: float2 12s ease-in-out infinite; }
+    .hs-3 { bottom: 20%; left: 14%; animation: float3 10s ease-in-out infinite; }
+    .hs-4 { bottom: 30%; right: 8%; animation: float1 14s ease-in-out infinite reverse; }
+    .hs-5 { top: 55%; left: 3%; animation: float2 8s ease-in-out infinite; }
+    .hs-6 { top: 10%; right: 28%; animation: float3 11s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-18px) rotate(12deg)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(16px) rotate(-10deg)} }
+    @keyframes float3 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-12px) scale(1.08)} }
+
+    /* ── SECTION DECORATIVE SVG ── */
+    .section-deco {
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.04; pointer-events: none;
+      width: 340px; height: 340px;
+    }
+    section { position: relative; }
+
+    /* ── METRIC ICONS ── */
+    .metric-icon { margin-bottom: 12px; opacity: 0.6; }
+
+    /* ── SKILL GROUP ICONS ── */
+    .sk-icon { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .sk-icon svg { flex-shrink: 0; }
+
+    /* ── TIMELINE SVG CONNECTOR ── */
+    .t-company-row { display: flex; align-items: center; gap: 10px; }
+
+    /* ── FOOTER SVG ── */
+    .footer-wave {
+      width: 100%; overflow: hidden; line-height: 0;
+      margin-bottom: -2px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { gap: 16px; padding: 10px 18px; font-size: 12px; }
@@ -582,6 +629,57 @@
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
+  <!-- Floating geometric SVG shapes -->
+  <div class="hero-shapes">
+    <!-- Hexagon -->
+    <div class="hs hs-1">
+      <svg width="64" height="72" viewBox="0 0 64 72" fill="none">
+        <polygon points="32,2 62,18 62,54 32,70 2,54 2,18" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+        <polygon points="32,12 52,23 52,49 32,60 12,49 12,23" stroke="#00d4ff" stroke-width="0.5" fill="none"/>
+      </svg>
+    </div>
+    <!-- Diamond -->
+    <div class="hs hs-2">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <polygon points="26,2 50,26 26,50 2,26" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.05)"/>
+        <polygon points="26,10 42,26 26,42 10,26" stroke="#a855f7" stroke-width="0.5" fill="none"/>
+      </svg>
+    </div>
+    <!-- Cross / plus -->
+    <div class="hs hs-3">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <line x1="24" y1="4" x2="24" y2="44" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="4" y1="24" x2="44" y2="24" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="4" fill="#10b981" fill-opacity="0.3"/>
+      </svg>
+    </div>
+    <!-- Triangle -->
+    <div class="hs hs-4">
+      <svg width="56" height="50" viewBox="0 0 56 50" fill="none">
+        <polygon points="28,3 54,47 2,47" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.04)"/>
+      </svg>
+    </div>
+    <!-- Circle rings -->
+    <div class="hs hs-5">
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+        <circle cx="30" cy="30" r="28" stroke="#a855f7" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="30" cy="30" r="18" stroke="#a855f7" stroke-width="0.5"/>
+        <circle cx="30" cy="30" r="4" fill="#a855f7" fill-opacity="0.4"/>
+      </svg>
+    </div>
+    <!-- Dot cluster -->
+    <div class="hs hs-6">
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+        <circle cx="6" cy="6" r="2" fill="#00d4ff"/><circle cx="18" cy="6" r="2" fill="#00d4ff"/>
+        <circle cx="30" cy="6" r="2" fill="#00d4ff"/><circle cx="42" cy="6" r="2" fill="#00d4ff"/>
+        <circle cx="6" cy="18" r="2" fill="#a855f7"/><circle cx="18" cy="18" r="2" fill="#a855f7"/>
+        <circle cx="30" cy="18" r="2" fill="#a855f7"/><circle cx="42" cy="18" r="2" fill="#a855f7"/>
+        <circle cx="6" cy="30" r="2" fill="#10b981"/><circle cx="18" cy="30" r="2" fill="#10b981"/>
+        <circle cx="30" cy="30" r="2" fill="#10b981"/><circle cx="42" cy="30" r="2" fill="#10b981"/>
+      </svg>
+    </div>
+  </div>
+
   <div class="hero-content">
     <div class="hero-tag">Head of Product · Recur Club · Bengaluru</div>
     <h1 class="hero-name">
@@ -613,18 +711,39 @@
 <div id="metrics">
   <div class="metrics-grid">
     <div class="metric-item">
+      <div class="metric-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
       <div class="metric-number" data-target="1500" data-suffix="Cr+">0</div>
       <div class="metric-label">INR disbursed annually</div>
     </div>
     <div class="metric-item">
+      <div class="metric-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+        </svg>
+      </div>
       <div class="metric-number" data-target="10" data-suffix="x">0</div>
       <div class="metric-label">DAU growth at NoBroker</div>
     </div>
     <div class="metric-item">
+      <div class="metric-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
       <div class="metric-number" data-target="90" data-suffix="%">0</div>
       <div class="metric-label">faster deal sharing</div>
     </div>
     <div class="metric-item">
+      <div class="metric-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
       <div class="metric-number" data-target="500" data-suffix="+">0</div>
       <div class="metric-label">active borrowers managed</div>
     </div>
@@ -633,6 +752,13 @@
 
 <!-- ── ABOUT ── -->
 <section id="about">
+  <!-- Decorative ring -->
+  <svg class="section-deco" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="170" cy="170" r="168" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="6 6"/>
+    <circle cx="170" cy="170" r="130" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <circle cx="170" cy="170" r="90" stroke="#10b981" stroke-width="0.5" stroke-dasharray="3 10"/>
+    <circle cx="170" cy="170" r="8" fill="#00d4ff" fill-opacity="0.2"/>
+  </svg>
   <div class="section-label">// about me</div>
   <div class="section-title reveal">Engineer who<br><em>thinks in products.</em></div>
   <div class="about-body reveal" style="transition-delay:0.1s;">
@@ -652,6 +778,22 @@
 
 <!-- ── AI SECTION ── -->
 <section id="ai-shipping" style="padding-top:0;">
+  <!-- Circuit watermark -->
+  <svg class="section-deco" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="right:-40px;">
+    <rect x="60" y="60" width="220" height="220" rx="4" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="60" y1="170" x2="280" y2="170" stroke="#a855f7" stroke-width="0.5"/>
+    <line x1="170" y1="60" x2="170" y2="280" stroke="#a855f7" stroke-width="0.5"/>
+    <circle cx="170" cy="170" r="30" stroke="#00d4ff" stroke-width="0.75"/>
+    <circle cx="170" cy="170" r="6" fill="#00d4ff" fill-opacity="0.3"/>
+    <circle cx="60" cy="60" r="4" fill="#a855f7" fill-opacity="0.4"/>
+    <circle cx="280" cy="60" r="4" fill="#a855f7" fill-opacity="0.4"/>
+    <circle cx="60" cy="280" r="4" fill="#a855f7" fill-opacity="0.4"/>
+    <circle cx="280" cy="280" r="4" fill="#a855f7" fill-opacity="0.4"/>
+    <circle cx="60" cy="170" r="4" fill="#00d4ff" fill-opacity="0.3"/>
+    <circle cx="280" cy="170" r="4" fill="#00d4ff" fill-opacity="0.3"/>
+    <circle cx="170" cy="60" r="4" fill="#00d4ff" fill-opacity="0.3"/>
+    <circle cx="170" cy="280" r="4" fill="#00d4ff" fill-opacity="0.3"/>
+  </svg>
   <div class="section-label">// how I work now</div>
   <div class="section-title reveal">Shipping faster with <em>AI.</em></div>
   <div class="ai-body">
@@ -892,7 +1034,10 @@
   <div class="section-title reveal">The <em>toolkit.</em></div>
   <div class="skills-grid">
     <div class="sk-group">
-      <div class="sk-title">Product Management</div>
+      <div class="sk-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <div class="sk-title" style="margin-bottom:0;">Product Management</div>
+      </div>
       <div class="sk-tags">
         <span class="sk-tag">Product Strategy</span>
         <span class="sk-tag">Roadmapping</span>
@@ -906,7 +1051,10 @@
       </div>
     </div>
     <div class="sk-group" style="transition-delay:0.1s;">
-      <div class="sk-title">AI / Data</div>
+      <div class="sk-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <div class="sk-title" style="margin-bottom:0;">AI / Data</div>
+      </div>
       <div class="sk-tags">
         <span class="sk-tag">LLM Integration</span>
         <span class="sk-tag">ML Pipelines</span>
@@ -919,7 +1067,10 @@
       </div>
     </div>
     <div class="sk-group" style="transition-delay:0.2s;">
-      <div class="sk-title">Engineering</div>
+      <div class="sk-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div class="sk-title" style="margin-bottom:0;">Engineering</div>
+      </div>
       <div class="sk-tags">
         <span class="sk-tag">Swift / SwiftUI</span>
         <span class="sk-tag">Python</span>
@@ -1016,27 +1167,62 @@
   <div class="section-title reveal">The human <em>behind the PM.</em></div>
   <div class="beyond-grid">
     <div class="beyond-card">
-      <div class="beyond-icon">🏃</div>
+      <div class="beyond-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+          <path d="M13 26 L17 18 L20 22 L24 14 L28 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="11" r="3" fill="#10b981" opacity="0.6"/>
+        </svg>
+      </div>
       <div class="beyond-ttl">Marathon Running</div>
       <div class="beyond-sub">Trains the same way I ship: consistent, data-driven, one km at a time.</div>
     </div>
     <div class="beyond-card" style="transition-delay:0.1s;">
-      <div class="beyond-icon">🏔</div>
+      <div class="beyond-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <polygon points="20,5 35,32 5,32" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.06)"/>
+          <polygon points="20,5 28,20 12,20" fill="rgba(0,212,255,0.1)"/>
+          <line x1="5" y1="32" x2="35" y2="32" stroke="#00d4ff" stroke-width="1.5"/>
+        </svg>
+      </div>
       <div class="beyond-ttl">Himalayan Trekking</div>
       <div class="beyond-sub">Where I reset, recalibrate, and remember what real long-term thinking looks like.</div>
     </div>
     <div class="beyond-card" style="transition-delay:0.2s;">
-      <div class="beyond-icon">📚</div>
+      <div class="beyond-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="8" y="8" width="10" height="26" rx="2" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.07)"/>
+          <rect x="22" y="8" width="10" height="26" rx="2" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.07)"/>
+          <line x1="10" y1="14" x2="16" y2="14" stroke="#a855f7" stroke-width="1"/>
+          <line x1="10" y1="18" x2="16" y2="18" stroke="#a855f7" stroke-width="1"/>
+          <line x1="10" y1="22" x2="16" y2="22" stroke="#a855f7" stroke-width="1"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="#a855f7" stroke-width="1"/>
+          <line x1="24" y1="18" x2="30" y2="18" stroke="#a855f7" stroke-width="1"/>
+        </svg>
+      </div>
       <div class="beyond-ttl">Reading</div>
       <div class="beyond-sub">Product strategy, behavioral economics, non-fiction. Always building a new mental model.</div>
     </div>
     <div class="beyond-card" style="transition-delay:0.3s;">
-      <div class="beyond-icon">⚽</div>
+      <div class="beyond-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="15" stroke="#f97316" stroke-width="1.5" fill="rgba(249,115,22,0.06)"/>
+          <polygon points="20,8 23,16 32,16 25,21 28,30 20,25 12,30 15,21 8,16 17,16" stroke="#f97316" stroke-width="1" fill="rgba(249,115,22,0.1)"/>
+        </svg>
+      </div>
       <div class="beyond-ttl">Football</div>
       <div class="beyond-sub">The original team sport. Tactics, improvisation, and knowing when to pass.</div>
     </div>
   </div>
 </section>
+
+<!-- ── FOOTER WAVE ── -->
+<div class="footer-wave">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;display:block;">
+    <path d="M0 40 C240 10 480 60 720 30 C960 0 1200 50 1440 20 L1440 60 L0 60 Z" fill="#080c16" opacity="0.5"/>
+    <path d="M0 50 C360 20 720 55 1080 25 C1260 10 1380 45 1440 35 L1440 60 L0 60 Z" fill="#1c2333" opacity="0.3"/>
+  </svg>
+</div>
 
 <!-- ── FOOTER ── -->
 <footer>
