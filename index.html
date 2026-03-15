@@ -357,6 +357,33 @@
       align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
+    .p-preview-kaaku {
+      background: linear-gradient(160deg, #0e0b05 0%, #1a1408 100%);
+      position: relative; overflow: hidden;
+    }
+    .kaaku-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%);
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,164,74,0.18) 0%, transparent 70%);
+      animation: kaaku-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes kaaku-pulse {
+      0%,100%{opacity:0.6;transform:translate(-50%,-60%) scale(1);}
+      50%{opacity:1;transform:translate(-50%,-60%) scale(1.15);}
+    }
+    .kaaku-buddy {
+      position: relative; z-index: 2;
+      font-size: 52px; line-height: 1;
+      animation: kaaku-float 3s ease-in-out infinite;
+    }
+    @keyframes kaaku-float {
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
+    }
+    .kaaku-chars {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 2; font-size: 16px;
+    }
     .p-preview-notchd {
       background: linear-gradient(160deg, #0a0d14 0%, #121820 100%);
     }
@@ -1025,6 +1052,33 @@
         </div>
       </div>
     </div>
+
+    <div class="p-card" id="card-kaaku" style="transition-delay:0.24s;">
+      <div class="p-preview p-preview-kaaku">
+        <div class="kaaku-glow"></div>
+        <div class="kaaku-buddy">🏴‍☠️</div>
+        <div class="kaaku-chars">🤖 ⚡ 🦌 ⚔️ 🐼</div>
+      </div>
+      <div class="p-body">
+        <div class="p-name">🪆 Kaaku</div>
+        <div class="p-desc">A 3D animated desktop buddy that lives on your screen. 6 GLB-rigged characters, built-in todo list, drag-to-rotate, personality animations, and auto-launch at login. Built as the foundation for a full personal AI assistant.</div>
+        <div class="p-tags">
+          <span class="tag">Electron</span>
+          <span class="tag">React Three Fiber</span>
+          <span class="tag">Three.js</span>
+          <span class="tag">GLB / Blender</span>
+          <span class="tag">Framer Motion</span>
+          <span class="tag">macOS</span>
+        </div>
+        <div class="p-links">
+          <a href="https://deveshrohan.github.io/kaaku" target="_blank"
+             onclick="gtag('event','kaaku_site',{event_category:'projects'});">Live site →</a>
+          <a href="https://github.com/deveshrohan/kaaku/releases" target="_blank" class="purple"
+             onclick="gtag('event','kaaku_download',{event_category:'projects'});">Download →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
