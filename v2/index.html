@@ -131,7 +131,7 @@
     @keyframes orb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-50px,-60px)} }
     @keyframes orb3 { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
 
-    .hero-content { position: relative; z-index: 2; padding: 0 24px; }
+    .hero-content { position: relative; z-index: 4; padding: 0 24px; }
 
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
@@ -617,6 +617,232 @@
       margin-bottom: -2px;
     }
 
+    /* ── BANGALORE THEME TOKENS ── */
+    :root {
+      --blr-yellow:  #FFD700;
+      --blr-saffron: #FF9933;
+      --blr-green:   #138808;
+    }
+
+    /* ── PROGRESS BAR: Karnataka flag gradient ── */
+    #progress-bar {
+      background: linear-gradient(90deg, #FF9933, #FFD700, #138808) !important;
+    }
+
+    /* ── RICKSHAW CTA BUTTON ── */
+    .btn-rickshaw {
+      background: linear-gradient(135deg, var(--blr-yellow), var(--blr-saffron));
+      color: #111; font-weight: 700; border: none;
+    }
+    .btn-rickshaw:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(255,215,0,0.35);
+    }
+
+    /* ── GAME CANVAS ── */
+    #game-canvas {
+      position: absolute; inset: 0; z-index: 2;
+      display: block; cursor: default;
+    }
+
+    /* ── GAME OVERLAY ── */
+    #game-overlay {
+      position: fixed; inset: 0; z-index: 501;
+      display: none; pointer-events: none;
+    }
+    #game-overlay.active { display: block; }
+
+    #game-exit-btn {
+      position: absolute; top: 20px; right: 20px;
+      background: rgba(6,9,18,0.85); border: 1px solid rgba(255,255,255,0.18);
+      color: #ccc; font-size: 12px; padding: 8px 18px; border-radius: 8px;
+      cursor: pointer; pointer-events: all;
+      font-family: var(--mono); letter-spacing: 0.06em;
+    }
+    #game-exit-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+
+    /* ── HUD ── */
+    #game-hud {
+      position: absolute; top: 16px; left: 16px;
+      display: flex; align-items: flex-start; gap: 10px;
+      pointer-events: none;
+    }
+    #hud-lives {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,215,0,0.3);
+      backdrop-filter: blur(8px);
+      border-radius: 10px; padding: 8px 14px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    #hud-score {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,215,0,0.3);
+      backdrop-filter: blur(8px);
+      border-radius: 10px; padding: 8px 16px;
+      font-family: var(--mono); font-size: 14px; font-weight: 700;
+      color: #FFD700; letter-spacing: 0.08em;
+    }
+    #hud-phase {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,215,0,0.3);
+      backdrop-filter: blur(8px);
+      border-radius: 10px; padding: 8px 14px;
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      color: rgba(255,215,0,0.7); letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── CHECKPOINT CARD (Billboard zoom) ── */
+    #checkpoint-card {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease, background 0.45s ease;
+    }
+    #checkpoint-card.visible {
+      opacity: 1; pointer-events: all;
+      background: rgba(0,0,0,0.62);
+    }
+
+    /* Zoom-in from left side */
+    #checkpoint-card.from-left.visible .cp-billboard {
+      animation: zoomFromLeft 0.65s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    /* Zoom-in from right side */
+    #checkpoint-card.from-right.visible .cp-billboard {
+      animation: zoomFromRight 0.65s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes zoomFromLeft {
+      from { transform: translateX(-44vw) scale(0.10); opacity: 0.2; }
+      to   { transform: translateX(0) scale(1); opacity: 1; }
+    }
+    @keyframes zoomFromRight {
+      from { transform: translateX(44vw) scale(0.10); opacity: 0.2; }
+      to   { transform: translateX(0) scale(1); opacity: 1; }
+    }
+
+    .cp-billboard {
+      position: relative;
+      width: 70%;
+      background: #FFFDE7;
+      border: 6px solid #BF360C;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 3px #FFC107,
+        0 0 0 8px #BF360C,
+        0 0 0 11px rgba(255,193,7,0.45),
+        0 0 80px rgba(255,120,0,0.45),
+        0 28px 90px rgba(0,0,0,0.75);
+    }
+    /* Indian saree-border top decorative strip */
+    .cp-billboard::before {
+      content: '';
+      display: block;
+      height: 7px;
+      background:
+        repeating-linear-gradient(90deg,
+          #FF9933 0px, #FF9933 14px,
+          #FFFFFF 14px, #FFFFFF 28px,
+          #138808 28px, #138808 42px,
+          #FFFFFF 42px, #FFFFFF 56px
+        );
+    }
+    /* Rangoli-inspired bottom decorative strip */
+    .cp-billboard::after {
+      content: '';
+      display: block;
+      height: 6px;
+      background:
+        repeating-linear-gradient(90deg,
+          #FFC107 0px, #FFC107 10px,
+          #BF360C 10px, #BF360C 20px
+        );
+    }
+    .cp-billboard-header {
+      background: linear-gradient(135deg, #BF360C, #E64A19);
+      padding: 18px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 4px solid #8D2A0D;
+    }
+    .cp-header-left { display: flex; align-items: center; gap: 14px; }
+    .cp-title-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.85);
+      font-family: var(--mono);
+    }
+    .cp-stop-badge {
+      background: rgba(0,0,0,0.22);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 6px; padding: 3px 10px;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: #FFC107; letter-spacing: 0.06em;
+    }
+    #cp-icon { font-size: 42px; line-height: 1; }
+    .cp-billboard-body { padding: 24px 28px 20px; }
+    #cp-label {
+      font-size: 30px; font-weight: 800; color: #1a0800;
+      margin-bottom: 18px; line-height: 1.1; font-family: var(--font);
+    }
+    #cp-facts {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 22px;
+    }
+    #cp-facts li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: #2a1000; line-height: 1.5;
+      background: rgba(0,0,0,0.07); padding: 11px 14px;
+      border-radius: 9px; border-left: 4px solid #E64A19;
+    }
+    #cp-facts li::before { content: '▸ '; color: #BF360C; font-weight: 700; flex-shrink: 0; font-size: 16px; }
+    .cp-btns { display: flex; gap: 12px; margin-bottom: 12px; }
+    .cp-btn {
+      flex: 1; padding: 14px 18px; border-radius: 11px; border: none;
+      cursor: pointer; font-size: 14px; font-weight: 700;
+      font-family: var(--font); transition: all 0.2s;
+    }
+    #cp-continue-btn { background: #1a0800; color: #FFC107; }
+    #cp-continue-btn:hover { background: #2c1200; }
+    #cp-read-btn { background: rgba(0,0,0,0.10); border: 2px solid rgba(0,0,0,0.16); color: #2a1000; }
+    #cp-read-btn:hover { background: rgba(0,0,0,0.18); }
+    .cp-keyboard-hint {
+      text-align: center; font-size: 10px; color: rgba(0,0,0,0.38);
+      font-family: var(--mono); letter-spacing: 0.06em;
+    }
+
+    /* ── GAME SPLASH ── */
+    #game-splash {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.82);
+      display: none; align-items: center; justify-content: center;
+      pointer-events: all;
+    }
+    .splash-content { text-align: center; padding: 40px; max-width: 480px; }
+    .splash-kannada { font-size: 18px; color: rgba(255,215,0,0.7); margin-bottom: 10px; }
+    .splash-title {
+      font-size: 52px; font-weight: 700; font-family: var(--mono);
+      color: #fff; line-height: 1.05; margin-bottom: 14px;
+      text-shadow: 0 0 50px rgba(255,215,0,0.35);
+    }
+    .splash-sub { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.65; margin-bottom: 26px; }
+    .splash-rules { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .splash-rules span {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+      padding: 7px 14px; border-radius: 999px; font-size: 12px; color: #ddd; font-family: var(--mono);
+    }
+    .splash-btn {
+      background: linear-gradient(135deg, var(--blr-yellow), var(--blr-saffron));
+      color: #000; border: none; cursor: pointer; font-size: 15px; font-weight: 700;
+      padding: 13px 34px; border-radius: 12px; font-family: var(--font);
+      transition: transform 0.2s, box-shadow 0.2s; margin: 4px;
+    }
+    .splash-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,215,0,0.3); }
+    .splash-btn-ghost { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); color: #fff; }
+    .splash-btn-share { background: rgba(29,161,242,0.22); border: 1px solid rgba(29,161,242,0.4); color: #fff; }
+    .splash-hint { margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.3); font-family: var(--mono); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { gap: 16px; padding: 10px 18px; font-size: 12px; }
@@ -643,7 +869,7 @@
   <a href="#experience">Work</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
-  <a href="./Devesh_Rohan.pdf" target="_blank"
+  <a href="../Devesh_Rohan.pdf" target="_blank"
      onclick="gtag('event','resume_download',{event_category:'nav'});">Resume ↓</a>
   <a href="mailto:deveshrohan@gmail.com" class="nav-cta"
      onclick="gtag('event','hire_me_click',{event_category:'nav'});">Let's Chat →</a>
@@ -652,6 +878,7 @@
 <!-- ── HERO ── -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
+  <canvas id="game-canvas"></canvas>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
@@ -708,7 +935,7 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-tag">Head of Product · Recur Club · Bengaluru</div>
+    <div class="hero-tag">🛺 Head of Product · Recur Club · ನಮ್ಮ ಬೆಂಗಳೂರು</div>
     <h1 class="hero-name">
       <span class="name-first">Devesh </span><span class="name-last">Rohan</span>
     </h1>
@@ -721,10 +948,13 @@
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#experience"
          onclick="gtag('event','view_work_click',{event_category:'hero'});">View my work</a>
-      <a class="btn btn-secondary" href="./Devesh_Rohan.pdf" target="_blank"
+      <a class="btn btn-secondary" href="../Devesh_Rohan.pdf" target="_blank"
          onclick="gtag('event','resume_download',{event_category:'hero'});">Resume ↓</a>
       <a class="btn btn-secondary" href="https://linkedin.com/in/deveshrohan" target="_blank"
          onclick="gtag('event','linkedin_click',{event_category:'hero'});">LinkedIn ↗</a>
+      <button class="btn btn-rickshaw"
+         onclick="BLRGame.start()"
+         style="cursor:pointer;">🛺 Take a Ride →</button>
     </div>
   </div>
 
@@ -1295,6 +1525,37 @@
   <div class="footer-copy">Built with curiosity · © 2026 Devesh Rohan</div>
 </footer>
 
+<!-- ── GAME OVERLAY ── -->
+<div id="game-overlay">
+  <div id="game-hud">
+    <div id="hud-lives"></div>
+    <div id="hud-score"></div>
+    <div id="hud-phase"></div>
+  </div>
+  <div id="checkpoint-card">
+    <div class="cp-billboard">
+      <div class="cp-billboard-header">
+        <div class="cp-header-left">
+          <div class="cp-title-label">Checkpoint</div>
+          <div class="cp-stop-badge" id="cp-stop-num">1 / 7</div>
+        </div>
+        <span id="cp-icon"></span>
+      </div>
+      <div class="cp-billboard-body">
+        <div id="cp-label"></div>
+        <ul id="cp-facts"></ul>
+        <div class="cp-btns">
+          <button class="cp-btn" id="cp-continue-btn">Continue Riding →</button>
+          <button class="cp-btn" id="cp-read-btn">Read Full Section</button>
+        </div>
+        <div class="cp-keyboard-hint">SPACE or ENTER to continue</div>
+      </div>
+    </div>
+  </div>
+  <div id="game-splash"></div>
+  <button id="game-exit-btn" onclick="BLRGame.stop()">✕ Exit</button>
+</div>
+
 <script>
 /* ── CUSTOM CURSOR ── */
 const cursor = document.getElementById('cursor');
@@ -1363,7 +1624,8 @@ class Particle {
 }
 const pts = Array.from({length:130}, () => new Particle());
 
-(function draw() {
+let _heroActive = true, _heroRAF;
+function _heroDraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   pts.forEach(p => { p.step(); p.draw(); });
   for (let i = 0; i < pts.length; i++) {
@@ -1377,8 +1639,11 @@ const pts = Array.from({length:130}, () => new Particle());
       }
     }
   }
-  requestAnimationFrame(draw);
-})();
+  if (_heroActive) _heroRAF = requestAnimationFrame(_heroDraw);
+}
+_heroRAF = requestAnimationFrame(_heroDraw);
+window._pauseHeroCanvas  = () => { _heroActive = false; cancelAnimationFrame(_heroRAF); };
+window._resumeHeroCanvas = () => { if (!_heroActive) { _heroActive = true; _heroRAF = requestAnimationFrame(_heroDraw); } };
 
 /* ── TYPEWRITER ── */
 const roles = ['Head of Product','Fintech Builder','ML × Product','Patent Inventor','IIM Kozhikode','Marathon Runner'];
@@ -1491,5 +1756,6 @@ if (grid) {
   }
 }
 </script>
+<script src="../game.js" defer></script>
 </body>
 </html>
