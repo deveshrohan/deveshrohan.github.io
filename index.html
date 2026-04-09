@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devesh Rohan, Head of Product</title>
-  <meta name="description" content="Head of Product at Recur Club. IIM Kozhikode MBA. Building data-driven products at the intersection of fintech, AI, and growth." />
-  <meta property="og:title" content="Devesh Rohan, Head of Product" />
-  <meta property="og:description" content="Engineer turned PM. IIM Kozhikode. Building at the intersection of fintech, AI, and growth." />
+  <title>Devesh Rohan — The Career Ride</title>
+  <meta name="description" content="Head of Product at Recur Club. Take an auto-rickshaw through Bengaluru and explore my career journey." />
+  <meta property="og:title" content="Devesh Rohan — The Career Ride" />
+  <meta property="og:description" content="An interactive 3D portfolio. Drive through Bengaluru to discover my work." />
 
-  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6J26ZSESSP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,8 +15,6 @@
     gtag('js', new Date());
     gtag('config', 'G-6J26ZSESSP');
   </script>
-
-  <!-- Hotjar -->
   <script>
     (function(h,o,t,j,a,r){
       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -32,1476 +29,204 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #05070f;
-      --bg2:      #080c16;
-      --surface:  #0d1117;
-      --surface2: #161b22;
-      --border:   #1c2333;
-      --border2:  #30363d;
-      --cyan:     #00d4ff;
-      --purple:   #a855f7;
-      --green:    #10b981;
-      --orange:   #f97316;
-      --text:     #f0f6fc;
-      --text2:    #c9d1d9;
-      --muted:    #8b949e;
-      --font:     'Space Grotesk', sans-serif;
-      --mono:     'Space Mono', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* ── CUSTOM CURSOR ── */
-    #cursor {
-      position: fixed; width: 10px; height: 10px;
-      background: var(--cyan); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transition: transform 0.1s; mix-blend-mode: screen;
-    }
-    #cursor-ring {
-      position: fixed; width: 38px; height: 38px;
-      border: 1.5px solid rgba(0,212,255,0.4); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transition: transform 0.2s, border-color 0.2s; mix-blend-mode: screen;
-    }
-
-    /* ── PROGRESS BAR ── */
-    #progress-bar {
-      position: fixed; top: 0; left: 0; height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--purple));
-      z-index: 1000; width: 0%; transition: width 0.1s linear;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 16px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      background: rgba(8,12,22,0.85);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 28px;
-      display: flex; align-items: center; gap: 32px;
-      font-size: 13px; font-weight: 500;
-      white-space: nowrap;
-    }
-    nav a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    nav a:hover { color: var(--text); }
-    nav .nav-cta {
-      color: var(--cyan); border: 1px solid rgba(0,212,255,0.3);
-      padding: 5px 16px; border-radius: 999px; font-size: 12px;
-    }
-    nav .nav-cta:hover { background: rgba(0,212,255,0.08); color: var(--cyan); }
-
-    /* ── HERO ── */
-    #hero {
-      position: relative; height: 100vh; min-height: 700px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      overflow: hidden; text-align: center;
-    }
-    #hero-canvas { position: absolute; inset: 0; z-index: 0; }
-
-    .orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(80px); opacity: 0.15;
-      pointer-events: none; z-index: 1;
-    }
-    .orb-1 {
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, #7c3aed, transparent);
-      top: -200px; left: -150px;
-      animation: orb1 14s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, #00d4ff, transparent);
-      bottom: -100px; right: -100px;
-      animation: orb2 18s ease-in-out infinite;
-    }
-    .orb-3 {
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, #10b981, transparent);
-      top: 40%; left: 55%;
-      animation: orb3 11s ease-in-out infinite;
-    }
-    @keyframes orb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,50px)} }
-    @keyframes orb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-50px,-60px)} }
-    @keyframes orb3 { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
-
-    .hero-content { position: relative; z-index: 2; padding: 0 24px; }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(168,85,247,0.1);
-      border: 1px solid rgba(168,85,247,0.3);
-      color: #c084fc; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 999px; margin-bottom: 32px;
-    }
-    .hero-tag::before {
-      content: ''; width: 6px; height: 6px;
-      background: #a855f7; border-radius: 50%;
-      animation: dot-pulse 2s infinite;
-    }
-    @keyframes dot-pulse {
-      0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)}
-    }
-
-    h1.hero-name {
-      font-size: clamp(60px, 10vw, 118px);
-      font-weight: 700; line-height: 0.95;
-      letter-spacing: -0.04em; margin-bottom: 20px;
-    }
-    .name-first { color: var(--text); }
-    .name-last {
-      background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-typewriter {
-      font-family: var(--mono); font-size: 17px;
-      color: var(--muted); margin-bottom: 44px; height: 26px;
-    }
-    #tw-text {
-      color: var(--cyan);
-      border-right: 2px solid var(--cyan);
-      padding-right: 2px;
-      animation: caret 0.8s step-end infinite;
-    }
-    @keyframes caret { 0%,100%{border-color:var(--cyan)} 50%{border-color:transparent} }
-
-    .hero-pills {
-      display: flex; gap: 10px; justify-content: center;
-      flex-wrap: wrap; margin-bottom: 44px;
-    }
-    .pill {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border2);
-      border-radius: 999px; padding: 7px 16px;
-      font-size: 13px; color: var(--text2);
-      font-family: var(--mono);
-    }
-    .pill strong { color: var(--cyan); }
-
-    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 28px; border-radius: 12px;
-      font-size: 14px; font-weight: 600;
-      text-decoration: none; transition: all 0.22s;
-      font-family: var(--font); cursor: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--cyan), #6d28d9);
-      color: #fff;
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,212,255,0.35); }
-    .btn-secondary {
-      background: rgba(255,255,255,0.04); color: var(--text);
-      border: 1px solid var(--border2);
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
-
-    .scroll-hint {
-      position: absolute; bottom: 32px; left: 50%;
-      transform: translateX(-50%); z-index: 2;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 8px;
-      color: var(--muted); font-size: 10px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      font-family: var(--mono);
-    }
-    .scroll-line {
-      width: 1px; height: 52px;
-      background: linear-gradient(to bottom, var(--cyan), transparent);
-      animation: scroll-anim 2.2s ease-in-out infinite;
-    }
-    @keyframes scroll-anim {
-      0%{opacity:0;transform:scaleY(0);transform-origin:top}
-      50%{opacity:1;transform:scaleY(1)}
-      100%{opacity:0;transform:scaleY(0);transform-origin:bottom}
-    }
-
-    /* ── METRICS STRIP ── */
-    #metrics {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0;
-    }
-    .metrics-grid {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      max-width: 1100px; margin: 0 auto;
-      gap: 1px; background: var(--border);
-    }
-    .metric-item { background: var(--bg2); padding: 44px 32px; text-align: center; }
-    .metric-number {
-      font-size: clamp(38px, 5vw, 58px);
-      font-weight: 700; font-family: var(--mono);
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; line-height: 1; margin-bottom: 8px;
-    }
-    .metric-label { font-size: 13px; color: var(--muted); font-weight: 500; }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 100px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-family: var(--mono); font-size: 11px; color: var(--cyan);
-      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(30px, 5vw, 50px);
-      font-weight: 700; letter-spacing: -0.03em;
-      line-height: 1.1; margin-bottom: 56px;
-    }
-    .section-title em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── ABOUT ── */
-    .about-body {
-      max-width: 680px;
-      font-size: 17px; color: var(--text2); line-height: 1.85;
-    }
-    .about-body p + p { margin-top: 20px; }
-    .about-body strong { color: var(--text); }
-    .about-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
-    .about-chip {
-      background: rgba(0,212,255,0.06);
-      border: 1px solid rgba(0,212,255,0.2);
-      color: var(--cyan); font-size: 12px;
-      font-family: var(--mono); padding: 6px 14px;
-      border-radius: 8px;
-    }
-
-    /* ── TIMELINE ── */
-    .timeline { position: relative; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 0; top: 8px; bottom: 0; width: 1px;
-      background: linear-gradient(to bottom, var(--cyan), var(--purple), rgba(168,85,247,0.1));
-    }
-    .timeline-item {
-      padding-left: 40px; margin-bottom: 28px;
-      position: relative; opacity: 0;
-      transform: translateX(24px);
-      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-    }
-    .timeline-item.visible { opacity: 1; transform: translateX(0); }
-    .timeline-dot {
-      position: absolute; left: -5px; top: 24px;
-      width: 11px; height: 11px; border-radius: 50%;
-      background: var(--cyan); border: 2px solid var(--bg);
-      box-shadow: 0 0 14px var(--cyan);
-    }
-    .t-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 18px; padding: 28px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .t-card:hover { border-color: rgba(0,212,255,0.25); box-shadow: 0 8px 40px rgba(0,0,0,0.3); }
-    .t-header {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; margin-bottom: 20px;
-      gap: 16px; flex-wrap: wrap;
-    }
-    .t-company { font-size: 19px; font-weight: 700; margin-bottom: 3px; }
-    .t-location { font-size: 12px; color: var(--muted); font-family: var(--mono); }
-    .t-badge {
-      background: rgba(0,212,255,0.07);
-      border: 1px solid rgba(0,212,255,0.2);
-      color: var(--cyan); font-size: 11px;
-      font-family: var(--mono); padding: 4px 11px;
-      border-radius: 7px; white-space: nowrap; flex-shrink: 0;
-    }
-    .t-role-block + .t-role-block { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .t-role { font-size: 13px; font-family: var(--mono); color: var(--cyan); margin-bottom: 3px; }
-    .t-dates { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
-    .t-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .t-bullets li {
-      font-size: 14px; color: var(--text2); line-height: 1.65;
-      padding-left: 18px; position: relative;
-    }
-    .t-bullets li::before {
-      content: '▸'; position: absolute; left: 0;
-      color: var(--purple); font-size: 11px; top: 2px;
-    }
-    .t-bullets li strong { color: var(--text); }
-
-    /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .p-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; overflow: hidden;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-      transform-style: preserve-3d;
-      opacity: 0; transform: translateY(36px);
-    }
-    .p-card.visible { opacity: 1; transform: translateY(0); }
-    .p-card:hover { border-color: rgba(0,212,255,0.3); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
-    .p-preview {
-      height: 200px; display: flex;
-      align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .p-preview-kaaku {
-      background: linear-gradient(160deg, #0e0b05 0%, #1a1408 100%);
-      position: relative; overflow: hidden;
-    }
-    .kaaku-glow {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%);
-      width: 120px; height: 120px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,164,74,0.18) 0%, transparent 70%);
-      animation: kaaku-pulse 2.8s ease-in-out infinite;
-    }
-    @keyframes kaaku-pulse {
-      0%,100%{opacity:0.6;transform:translate(-50%,-60%) scale(1);}
-      50%{opacity:1;transform:translate(-50%,-60%) scale(1.15);}
-    }
-    .kaaku-buddy {
-      position: relative; z-index: 2;
-      font-size: 52px; line-height: 1;
-      animation: kaaku-float 3s ease-in-out infinite;
-    }
-    @keyframes kaaku-float {
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
-    .kaaku-chars {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 8px; z-index: 2; font-size: 16px;
-    }
-    .p-preview-notchd {
-      background: linear-gradient(160deg, #0a0d14 0%, #121820 100%);
-    }
-    .p-preview-notchd::before {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 110px; height: 26px;
-      background: #000; border-radius: 0 0 14px 14px; z-index: 2;
-    }
-    .notch-mini-grid {
-      display: flex; gap: 2px; margin-top: 44px; z-index: 1;
-    }
-    .nmg-col { display: flex; flex-direction: column; gap: 2px; }
-    .nmg-cell { width: 7px; height: 7px; border-radius: 1px; }
-    .streak-badge {
-      position: absolute; top: 36px; right: 20px;
-      font-size: 11px; color: #39d353;
-      font-family: var(--mono); z-index: 3;
-    }
-    .p-preview-popslack {
-      background: linear-gradient(160deg, #120822 0%, #1e1040 100%);
-    }
-    .slack-rings {
-      position: relative; display: flex;
-      align-items: center; justify-content: center;
-    }
-    .slack-ring {
-      position: absolute; border: 1px solid rgba(168,85,247,0.3);
-      border-radius: 50%; animation: ring-pulse 3s ease-in-out infinite;
-    }
-    @keyframes ring-pulse {
-      0%,100%{opacity:0.3;transform:scale(1)}
-      50%{opacity:0.6;transform:scale(1.08)}
-    }
-    .p-body { padding: 24px; }
-    .p-name { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .p-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
-    .p-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px; }
-    .tag {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border2);
-      color: var(--muted); font-size: 11px;
-      font-family: var(--mono); padding: 4px 10px; border-radius: 6px;
-    }
-    .p-links { display: flex; gap: 16px; }
-    .p-links a {
-      font-size: 13px; font-weight: 600;
-      text-decoration: none; color: var(--cyan);
-      display: flex; align-items: center; gap: 5px;
-      transition: gap 0.2s;
-    }
-    .p-links a:hover { gap: 9px; }
-    .p-links a.purple { color: var(--purple); }
-
-    /* ── SKILLS ── */
-    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .sk-group {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-    }
-    .sk-group.visible { opacity: 1; transform: translateY(0); }
-    .sk-title {
-      font-size: 11px; font-family: var(--mono);
-      color: var(--purple); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 14px;
-    }
-    .sk-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-    .sk-tag {
-      background: rgba(168,85,247,0.07);
-      border: 1px solid rgba(168,85,247,0.18);
-      color: var(--text2); font-size: 12px;
-      padding: 5px 12px; border-radius: 8px;
-      transition: all 0.18s; cursor: default;
-    }
-    .sk-tag:hover { background: rgba(168,85,247,0.14); color: var(--text); transform: translateY(-1px); }
-
-    /* ── EDUCATION ── */
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .edu-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px;
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-    }
-    .edu-card.visible { opacity: 1; transform: translateY(0); }
-    .edu-card:hover { border-color: rgba(168,85,247,0.3); }
-    .edu-inst { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .edu-degree { font-size: 13px; color: var(--purple); font-family: var(--mono); margin-bottom: 6px; }
-    .edu-date { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
-    .edu-badge {
-      display: inline-block;
-      background: rgba(168,85,247,0.08);
-      border: 1px solid rgba(168,85,247,0.22);
-      color: #c084fc; font-size: 11px;
-      padding: 4px 11px; border-radius: 7px;
-    }
-
-    /* ── AWARDS ── */
-    .awards-list {
-      display: flex; flex-direction: column;
-      gap: 1px; background: var(--border);
-      border-radius: 16px; overflow: hidden;
-    }
-    .award-item {
-      background: var(--surface); padding: 18px 22px;
-      display: flex; align-items: center; gap: 14px;
-      transition: background 0.2s;
-      opacity: 0; transform: translateX(-18px);
-    }
-    .award-item.visible { opacity: 1; transform: translateX(0); transition: all 0.45s cubic-bezier(0.16,1,0.3,1); }
-    .award-item:hover { background: var(--surface2); }
-    .award-icon { font-size: 20px; flex-shrink: 0; }
-    .award-text { flex: 1; }
-    .award-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-    .award-title strong { color: var(--cyan); }
-    .award-org { font-size: 12px; color: var(--muted); font-family: var(--mono); }
-    .award-year { font-size: 12px; color: var(--muted); font-family: var(--mono); flex-shrink: 0; }
-
-    /* ── AI SECTION ── */
-    .ai-body {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: start;
-    }
-    .ai-text p { font-size: 16px; color: var(--text2); line-height: 1.8; }
-    .ai-text p + p { margin-top: 16px; }
-    .ai-text strong { color: var(--text); }
-    .ai-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
-    .github-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-    }
-    .github-card-header {
-      display: flex; align-items: center; gap: 10px;
-      padding: 16px 20px; border-bottom: 1px solid var(--border);
-    }
-    .github-graph-wrap {
-      padding: 20px; overflow-x: auto;
-    }
-    .gg-grid { display: flex; gap: 3px; }
-    .gg-col { display: flex; flex-direction: column; gap: 3px; }
-    .gg-cell { width: 11px; height: 11px; border-radius: 2px; }
-    .github-card-footer { padding: 12px 20px; border-top: 1px solid var(--border); }
-    @media (max-width: 768px) {
-      .ai-body { grid-template-columns: 1fr; }
-    }
-
-    /* ── BEYOND ── */
-    .beyond-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .beyond-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 18px; text-align: center;
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.45s cubic-bezier(0.16,1,0.3,1);
-    }
-    .beyond-card.visible { opacity: 1; transform: translateY(0); }
-    .beyond-card:hover { border-color: rgba(16,185,129,0.35); transform: translateY(-5px); box-shadow: 0 14px 40px rgba(16,185,129,0.08); }
-    .beyond-icon { font-size: 34px; margin-bottom: 12px; }
-    .beyond-ttl { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
-    .beyond-sub { font-size: 12px; color: var(--muted); line-height: 1.55; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 56px 24px; text-align: center;
-    }
-    .footer-name { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
-    .footer-sub { font-size: 13px; color: var(--muted); font-family: var(--mono); margin-bottom: 32px; }
-    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
-    .footer-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: 13px; font-weight: 500;
-      display: flex; align-items: center; gap: 6px;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--cyan); }
-    .footer-copy { font-size: 11px; color: var(--border2); font-family: var(--mono); }
-
-    /* ── REVEAL UTILITY ── */
-    .reveal {
-      opacity: 0; transform: translateY(26px);
-      transition: all 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── GLOBAL DOT GRID BACKGROUND ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    }
-
-    /* ── FLOATING SVG SHAPES (HERO) ── */
-    .hero-shapes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-    .hs { position: absolute; opacity: 0.12; }
-    .hs-1 { top: 15%; left: 8%; animation: float1 9s ease-in-out infinite; }
-    .hs-2 { top: 25%; right: 10%; animation: float2 12s ease-in-out infinite; }
-    .hs-3 { bottom: 20%; left: 14%; animation: float3 10s ease-in-out infinite; }
-    .hs-4 { bottom: 30%; right: 8%; animation: float1 14s ease-in-out infinite reverse; }
-    .hs-5 { top: 55%; left: 3%; animation: float2 8s ease-in-out infinite; }
-    .hs-6 { top: 10%; right: 28%; animation: float3 11s ease-in-out infinite; }
-    @keyframes float1 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-18px) rotate(12deg)} }
-    @keyframes float2 { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(16px) rotate(-10deg)} }
-    @keyframes float3 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-12px) scale(1.08)} }
-
-    /* ── SECTION DECORATIVE SVG ── */
-    .section-deco {
-      position: absolute; right: 0; top: 50%;
-      transform: translateY(-50%);
-      opacity: 0.04; pointer-events: none;
-      width: 340px; height: 340px;
-    }
-    section { position: relative; }
-
-    /* ── METRIC ICONS ── */
-    .metric-icon { margin-bottom: 12px; opacity: 0.6; }
-
-    /* ── SKILL GROUP ICONS ── */
-    .sk-icon { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .sk-icon svg { flex-shrink: 0; }
-
-    /* ── TIMELINE SVG CONNECTOR ── */
-    .t-company-row { display: flex; align-items: center; gap: 10px; }
-
-    /* ── FOOTER SVG ── */
-    .footer-wave {
-      width: 100%; overflow: hidden; line-height: 0;
-      margin-bottom: -2px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { gap: 16px; padding: 10px 18px; font-size: 12px; }
-      nav a:not(.nav-cta):not(:last-child) { display: none; }
-      .metrics-grid { grid-template-columns: repeat(2,1fr); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .edu-grid { grid-template-columns: 1fr; }
-      .beyond-grid { grid-template-columns: repeat(2,1fr); }
-      body { cursor: auto; }
-      #cursor, #cursor-ring { display: none; }
-    }
-  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-<div id="progress-bar"></div>
+<!-- 3D Canvas — the entire experience -->
+<canvas id="world"></canvas>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#experience">Work</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="./Devesh_Rohan.pdf" target="_blank"
-     onclick="gtag('event','resume_download',{event_category:'nav'});">Resume ↓</a>
-  <a href="mailto:deveshrohan@gmail.com" class="nav-cta"
-     onclick="gtag('event','hire_me_click',{event_category:'nav'});">Let's Chat →</a>
+<!-- Loading screen -->
+<div id="loader">
+  <div class="loader-auto">🛺</div>
+  <div class="loader-text">Loading Bengaluru...</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- Scroll container (invisible, drives the 3D world) -->
+<div id="scroll-driver"></div>
+
+<!-- Scroll progress — tiny auto on a road track -->
+<div id="progress">
+  <div class="progress-road"></div>
+  <div class="progress-auto">🛺</div>
+  <div class="progress-dots">
+    <span data-section="0"></span>
+    <span data-section="1"></span>
+    <span data-section="2"></span>
+    <span data-section="3"></span>
+    <span data-section="4"></span>
+    <span data-section="5"></span>
+  </div>
+</div>
+
+<!-- Fixed nav -->
+<nav id="topnav">
+  <a href="Devesh_Rohan.pdf" target="_blank">Resume ↓</a>
+  <a href="https://linkedin.com/in/deveshrohan" target="_blank">LinkedIn</a>
+  <a href="mailto:deveshrohan@gmail.com">Let's Chat →</a>
 </nav>
 
-<!-- ── HERO ── -->
-<section id="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+<!-- ═══ CONTENT PANELS (overlay on 3D world) ═══ -->
 
-  <!-- Floating geometric SVG shapes -->
-  <div class="hero-shapes">
-    <!-- Hexagon -->
-    <div class="hs hs-1">
-      <svg width="64" height="72" viewBox="0 0 64 72" fill="none">
-        <polygon points="32,2 62,18 62,54 32,70 2,54 2,18" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
-        <polygon points="32,12 52,23 52,49 32,60 12,49 12,23" stroke="#00d4ff" stroke-width="0.5" fill="none"/>
-      </svg>
+<!-- Panel 0: Hero / Intro -->
+<div class="panel" data-index="0">
+  <div class="panel-inner panel-hero">
+    <div class="hero-tag">🛺 ನಮ್ಮ ಬೆಂಗಳೂರು</div>
+    <h1><span class="light">Devesh</span> <span class="gradient">Rohan</span></h1>
+    <p class="hero-role">Head of Product · Recur Club</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>1500 Cr+</strong><span>INR disbursed</span></div>
+      <div class="stat"><strong>7+</strong><span>years building</span></div>
+      <div class="stat"><strong>IIM K</strong><span>MBA</span></div>
     </div>
-    <!-- Diamond -->
-    <div class="hs hs-2">
-      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-        <polygon points="26,2 50,26 26,50 2,26" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.05)"/>
-        <polygon points="26,10 42,26 26,42 10,26" stroke="#a855f7" stroke-width="0.5" fill="none"/>
-      </svg>
-    </div>
-    <!-- Cross / plus -->
-    <div class="hs hs-3">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <line x1="24" y1="4" x2="24" y2="44" stroke="#10b981" stroke-width="1.5"/>
-        <line x1="4" y1="24" x2="44" y2="24" stroke="#10b981" stroke-width="1.5"/>
-        <circle cx="24" cy="24" r="4" fill="#10b981" fill-opacity="0.3"/>
-      </svg>
-    </div>
-    <!-- Triangle -->
-    <div class="hs hs-4">
-      <svg width="56" height="50" viewBox="0 0 56 50" fill="none">
-        <polygon points="28,3 54,47 2,47" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.04)"/>
-      </svg>
-    </div>
-    <!-- Circle rings -->
-    <div class="hs hs-5">
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-        <circle cx="30" cy="30" r="28" stroke="#a855f7" stroke-width="1" stroke-dasharray="4 4"/>
-        <circle cx="30" cy="30" r="18" stroke="#a855f7" stroke-width="0.5"/>
-        <circle cx="30" cy="30" r="4" fill="#a855f7" fill-opacity="0.4"/>
-      </svg>
-    </div>
-    <!-- Dot cluster -->
-    <div class="hs hs-6">
-      <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
-        <circle cx="6" cy="6" r="2" fill="#00d4ff"/><circle cx="18" cy="6" r="2" fill="#00d4ff"/>
-        <circle cx="30" cy="6" r="2" fill="#00d4ff"/><circle cx="42" cy="6" r="2" fill="#00d4ff"/>
-        <circle cx="6" cy="18" r="2" fill="#a855f7"/><circle cx="18" cy="18" r="2" fill="#a855f7"/>
-        <circle cx="30" cy="18" r="2" fill="#a855f7"/><circle cx="42" cy="18" r="2" fill="#a855f7"/>
-        <circle cx="6" cy="30" r="2" fill="#10b981"/><circle cx="18" cy="30" r="2" fill="#10b981"/>
-        <circle cx="30" cy="30" r="2" fill="#10b981"/><circle cx="42" cy="30" r="2" fill="#10b981"/>
-      </svg>
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-tag">Head of Product · Recur Club · Bengaluru</div>
-    <h1 class="hero-name">
-      <span class="name-first">Devesh </span><span class="name-last">Rohan</span>
-    </h1>
-    <div class="hero-typewriter"><span id="tw-text"></span></div>
-    <div class="hero-pills">
-      <div class="pill"><strong>INR 1500 Cr+</strong> disbursed</div>
-      <div class="pill">IIM Kozhikode · NIT Hamirpur</div>
-      <div class="pill"><strong>7+</strong> yrs · Engineer → PM</div>
-    </div>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="#experience"
-         onclick="gtag('event','view_work_click',{event_category:'hero'});">View my work</a>
-      <a class="btn btn-secondary" href="./Devesh_Rohan.pdf" target="_blank"
-         onclick="gtag('event','resume_download',{event_category:'hero'});">Resume ↓</a>
-      <a class="btn btn-secondary" href="https://linkedin.com/in/deveshrohan" target="_blank"
-         onclick="gtag('event','linkedin_click',{event_category:'hero'});">LinkedIn ↗</a>
-    </div>
-  </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    scroll
-  </div>
-</section>
-
-<!-- ── METRICS ── -->
-<div id="metrics">
-  <div class="metrics-grid">
-    <div class="metric-item">
-      <div class="metric-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+    <div class="scroll-prompt" id="scroll-prompt">
+      <div class="scroll-prompt-icon">
+        <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
+          <rect x="1" y="1" width="22" height="34" rx="11" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <circle class="scroll-dot" cx="12" cy="10" r="3" fill="#FFD700"/>
         </svg>
       </div>
-      <div class="metric-number" data-target="1500" data-suffix="Cr+">0</div>
-      <div class="metric-label">INR disbursed annually</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round">
-          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-        </svg>
-      </div>
-      <div class="metric-number" data-target="10" data-suffix="x">0</div>
-      <div class="metric-label">DAU growth at NoBroker</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-      </div>
-      <div class="metric-number" data-target="90" data-suffix="%">0</div>
-      <div class="metric-label">faster deal sharing</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      </div>
-      <div class="metric-number" data-target="500" data-suffix="+">0</div>
-      <div class="metric-label">active borrowers managed</div>
+      <span class="scroll-prompt-text">Scroll to drive</span>
     </div>
   </div>
 </div>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <!-- Decorative ring -->
-  <svg class="section-deco" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="170" cy="170" r="168" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="6 6"/>
-    <circle cx="170" cy="170" r="130" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="4 8"/>
-    <circle cx="170" cy="170" r="90" stroke="#10b981" stroke-width="0.5" stroke-dasharray="3 10"/>
-    <circle cx="170" cy="170" r="8" fill="#00d4ff" fill-opacity="0.2"/>
-  </svg>
-  <div class="section-label">// about me</div>
-  <div class="section-title reveal">Engineer who<br><em>thinks in products.</em></div>
-  <div class="about-body reveal" style="transition-delay:0.1s;">
-    <p>I started writing code at <strong>Samsung Electronics</strong>, building DRM modules, managing security on Tizen, and filing patents in India and the US. Then <strong>IIM Kozhikode</strong> taught me why products succeed or fail.</p>
-    <p>Now I sit at the rarest intersection: someone who can read a diff and a P&L. I build systems that reduce underwriting time by 30%, matching algorithms that cut deal-sharing time by 90%, and platforms that scale 10x. And I never forget the user on the other end.</p>
-    <p>When I'm not shipping, I'm on a Himalayan trail, running marathons, or building side projects like <strong>Notchd</strong>, a macOS app that puts your GitHub streak in the notch. The best PMs never stop building.</p>
-    <div class="about-chips">
-      <span class="about-chip">Fintech</span>
-      <span class="about-chip">AI / ML</span>
-      <span class="about-chip">Growth</span>
-      <span class="about-chip">Platform Products</span>
-      <span class="about-chip">0→1</span>
-      <span class="about-chip">Swift / Python</span>
+<!-- Panel 1: About -->
+<div class="panel" data-index="1">
+  <div class="panel-inner panel-content">
+    <div class="panel-km">KM 1</div>
+    <h2>Engineer who <em>thinks in products.</em></h2>
+    <p>Started writing code at <strong>Samsung</strong> — DRM modules, security on Tizen, patents filed in India and the US. Then <strong>IIM Kozhikode</strong> taught me why products succeed or fail.</p>
+    <p>Now I read diffs AND P&Ls. I build systems that cut underwriting time by 30%, matching algorithms that reduce deal-sharing by 90%, and platforms that scale 10x.</p>
+    <div class="chips">
+      <span>Fintech</span><span>AI / ML</span><span>Growth</span><span>0→1</span><span>Swift / Python</span>
     </div>
   </div>
-</section>
-
-<!-- ── AI SECTION ── -->
-<section id="ai-shipping" style="padding-top:0;">
-  <!-- Circuit watermark -->
-  <svg class="section-deco" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="right:-40px;">
-    <rect x="60" y="60" width="220" height="220" rx="4" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="4 4"/>
-    <line x1="60" y1="170" x2="280" y2="170" stroke="#a855f7" stroke-width="0.5"/>
-    <line x1="170" y1="60" x2="170" y2="280" stroke="#a855f7" stroke-width="0.5"/>
-    <circle cx="170" cy="170" r="30" stroke="#00d4ff" stroke-width="0.75"/>
-    <circle cx="170" cy="170" r="6" fill="#00d4ff" fill-opacity="0.3"/>
-    <circle cx="60" cy="60" r="4" fill="#a855f7" fill-opacity="0.4"/>
-    <circle cx="280" cy="60" r="4" fill="#a855f7" fill-opacity="0.4"/>
-    <circle cx="60" cy="280" r="4" fill="#a855f7" fill-opacity="0.4"/>
-    <circle cx="280" cy="280" r="4" fill="#a855f7" fill-opacity="0.4"/>
-    <circle cx="60" cy="170" r="4" fill="#00d4ff" fill-opacity="0.3"/>
-    <circle cx="280" cy="170" r="4" fill="#00d4ff" fill-opacity="0.3"/>
-    <circle cx="170" cy="60" r="4" fill="#00d4ff" fill-opacity="0.3"/>
-    <circle cx="170" cy="280" r="4" fill="#00d4ff" fill-opacity="0.3"/>
-  </svg>
-  <div class="section-label">// how I work now</div>
-  <div class="section-title reveal">Shipping faster with <em>AI.</em></div>
-  <div class="ai-body">
-    <div class="ai-text reveal" style="transition-delay:0.05s;">
-      <p>I use AI the way a good PM uses data: to move faster without cutting corners. At Recur Club, I've been using LLMs to accelerate everything from writing PRDs to reviewing underwriting logic, and the results show up in the work, not just the conversation.</p>
-      <p>Outside of work, every side project I ship now involves AI somewhere in the loop. Notchd was scoped, debugged, and shipped faster because I had a co-pilot that could context-switch as quickly as I could. Same with PopSlack.</p>
-      <p>The GitHub contribution graph below is my work account. Each green square is a day I pushed something. The cadence has picked up steadily as AI tools have gotten better, because the gap between thinking something and shipping it keeps shrinking.</p>
-      <div class="ai-chips">
-        <span class="about-chip">LLM-driven PRDs</span>
-        <span class="about-chip">AI code review</span>
-        <span class="about-chip">Eval frameworks</span>
-        <span class="about-chip">Automated pipelines</span>
-        <span class="about-chip">Faster 0 to 1</span>
-      </div>
-    </div>
-    <div class="ai-github reveal" style="transition-delay:0.15s;">
-      <div class="github-card">
-        <div class="github-card-header">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--muted)"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          <span style="font-size:13px;font-weight:600;">fl-devesh</span>
-          <span style="font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto;">Work GitHub</span>
-        </div>
-        <div class="github-graph-wrap" id="work-github-graph">
-          <!-- Generated by JS -->
-        </div>
-        <div class="github-card-footer">
-          <a href="https://github.com/fl-devesh" target="_blank"
-             onclick="gtag('event','work_github_click',{event_category:'ai_section'});"
-             style="font-size:12px;color:var(--cyan);text-decoration:none;font-family:var(--mono);">View profile on GitHub →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── EXPERIENCE ── -->
-<section id="experience" style="padding-top:0;">
-  <div class="section-label">// work experience</div>
-  <div class="section-title reveal">Where I've <em>built things.</em></div>
-
-  <div class="timeline">
-
-    <!-- Recur Club -->
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="t-card">
-        <div class="t-header">
-          <div>
-            <div class="t-company">Recur Club</div>
-            <div class="t-location">📍 Bengaluru, Karnataka, IN</div>
-          </div>
-          <div class="t-badge">Current</div>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role">Head of Products</div>
-          <div class="t-dates">Dec 2025 – Present</div>
-          <ul class="t-bullets">
-            <li>Led product vision for commercial debt marketplace processing <strong>INR 1500 Cr+ annual disbursements</strong> across 500+ active borrowers</li>
-            <li>Rapidly built no-code Partner Platform, generating <strong>10% of monthly lead volume</strong> without engineering resources</li>
-          </ul>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role">Senior Product Manager</div>
-          <div class="t-dates">Jun 2025 – Nov 2025</div>
-          <ul class="t-bullets">
-            <li>Reduced underwriting turnaround time by <strong>30%</strong> using ML, LLM-driven provisional ingestion and automated data pipelines</li>
-            <li>Improved internal CSAT by <strong>9 points in one quarter</strong> by redesigning workflows for teams managing 200+ monthly deals</li>
-            <li>Improved reliability of AI-generated underwriting insights by enhancing data quality and implementing evaluation frameworks</li>
-          </ul>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role">Product Manager</div>
-          <div class="t-dates">Aug 2023 – May 2025</div>
-          <ul class="t-bullets">
-            <li>Optimized borrower-lender matching algorithm, reducing deal sharing time by <strong>90%</strong> while increasing deal success rate by 8%</li>
-            <li>Launched RBI-compliant Virtual Account system processing <strong>INR 25 Cr+ monthly repayments</strong>, increasing on-time collections by 20%</li>
-            <li>Built default analytics platform enabling recovery teams to prioritize high-value accounts, increasing recovery rate from <strong>7% to 12%</strong></li>
-            <li>Spearheaded targeted referral program, boosting outbound leads by <strong>25% MoM</strong> using data analytics and strategic customer segmentation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- NoBroker -->
-    <div class="timeline-item" style="transition-delay:0.1s;">
-      <div class="timeline-dot" style="background:var(--purple);box-shadow:0 0 14px var(--purple);"></div>
-      <div class="t-card">
-        <div class="t-header">
-          <div>
-            <div class="t-company">NoBroker</div>
-            <div class="t-location">📍 Bengaluru, Karnataka, IN</div>
-          </div>
-          <div class="t-badge" style="color:var(--purple);border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.07);">Feb 2022 – Mar 2023</div>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role" style="color:var(--purple);">Product Manager</div>
-          <ul class="t-bullets">
-            <li>Executed data-driven user acquisition strategy, scaling gaming <strong>DAU 10x and MAU 6x</strong> while optimizing customer engagement metrics</li>
-            <li>Drove <strong>80% retention improvement</strong> through behavioral analysis and incentive optimization for enhancing overall product stickiness metrics</li>
-            <li>Boosted <strong>Day 7 retention by 35%</strong> and Day 12 retention by 50% by implementing incentive structures and brand reward programs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gameskraft -->
-    <div class="timeline-item" style="transition-delay:0.2s;">
-      <div class="timeline-dot" style="background:var(--green);box-shadow:0 0 14px var(--green);"></div>
-      <div class="t-card">
-        <div class="t-header">
-          <div>
-            <div class="t-company">Gameskraft</div>
-            <div class="t-location">📍 Bengaluru, Karnataka, IN</div>
-          </div>
-          <div class="t-badge" style="color:var(--green);border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.07);">Jul 2021 – Feb 2022</div>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role" style="color:var(--green);">Associate Product Manager</div>
-          <ul class="t-bullets">
-            <li>Implemented agile ticket management system, optimizing support process and reducing turnaround time for enhanced user satisfaction</li>
-            <li>Conducted in-depth funnel analysis, resolving critical UX bug to <strong>reduce user drop-offs by 10%</strong> and improve conversion rates</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Myntra -->
-    <div class="timeline-item" style="transition-delay:0.25s;">
-      <div class="timeline-dot" style="background:#f59e0b;box-shadow:0 0 14px #f59e0b;"></div>
-      <div class="t-card">
-        <div class="t-header">
-          <div>
-            <div class="t-company">Myntra</div>
-            <div class="t-location">📍 Bengaluru, Karnataka, IN</div>
-          </div>
-          <div class="t-badge" style="color:#f59e0b;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.07);">May 2020 – Jun 2020</div>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role" style="color:#f59e0b;">Product Management Intern, Winner of PM Challenge</div>
-          <ul class="t-bullets">
-            <li>Performed comprehensive e-commerce competitor analysis, identifying key product features and market trends for strategic planning</li>
-            <li>Executed user research across 10+ cohorts, synthesizing insights to drive data-informed product decisions and enhance user experience</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Samsung -->
-    <div class="timeline-item" style="transition-delay:0.3s;">
-      <div class="timeline-dot" style="background:var(--orange);box-shadow:0 0 14px var(--orange);"></div>
-      <div class="t-card">
-        <div class="t-header">
-          <div>
-            <div class="t-company">Samsung Electronics</div>
-            <div class="t-location">📍 Noida, Uttar Pradesh, IN</div>
-          </div>
-          <div class="t-badge" style="color:var(--orange);border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.07);">Jul 2016 – Jun 2019</div>
-        </div>
-        <div class="t-role-block">
-          <div class="t-role" style="color:var(--orange);">Software Engineer → Patent Inventor</div>
-          <ul class="t-bullets">
-            <li>Maintained 7+ DRM & security modules across Samsung's Tizen and Orsay TV platforms</li>
-            <li>Built internal vulnerability management tool, improving team efficiency and QA processes</li>
-            <li>Innovated AR-based solution resulting in <strong>India / US patent filing</strong>, demonstrating product ideation and technological innovation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── PROJECTS ── -->
-<section id="projects" style="padding-top:0;">
-  <div class="section-label">// side projects</div>
-  <div class="section-title reveal">Things I build <em>at night.</em></div>
-
-  <div class="projects-grid">
-    <div class="p-card" id="card-notchd">
-      <div class="p-preview p-preview-notchd">
-        <div class="notch-mini-grid" id="notch-mini"></div>
-        <div class="streak-badge">42-day streak 🔥</div>
-      </div>
-      <div class="p-body">
-        <div class="p-name">🔥 Notchd</div>
-        <div class="p-desc">Your GitHub contribution graph, living in the MacBook notch. Hover to open, move away to close. Animated streak flames. Zero dock clutter. 2.4 MB.</div>
-        <div class="p-tags">
-          <span class="tag">Swift</span>
-          <span class="tag">SwiftUI</span>
-          <span class="tag">macOS</span>
-          <span class="tag">GitHub GraphQL</span>
-          <span class="tag">Lottie</span>
-          <span class="tag">Keychain</span>
-        </div>
-        <div class="p-links">
-          <a href="https://deveshrohan.github.io/notchd" target="_blank"
-             onclick="gtag('event','notchd_site',{event_category:'projects'});">Live site →</a>
-          <a href="https://github.com/deveshrohan/notchd/releases/latest" target="_blank" class="purple"
-             onclick="gtag('event','notchd_download',{event_category:'projects'});">Download →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="p-card" id="card-popslack" style="transition-delay:0.12s;">
-      <div class="p-preview p-preview-popslack">
-        <div class="slack-rings">
-          <div class="slack-ring" style="width:140px;height:140px;animation-delay:0s;"></div>
-          <div class="slack-ring" style="width:96px;height:96px;animation-delay:0.6s;"></div>
-          <div class="slack-ring" style="width:56px;height:56px;animation-delay:1.2s;"></div>
-          <div style="font-size:44px;position:relative;z-index:1;">🔔</div>
-        </div>
-        <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:10px;color:#c084fc;font-family:var(--mono);white-space:nowrap;">Rule-based · Privacy-first · Zero API keys</div>
-      </div>
-      <div class="p-body">
-        <div class="p-name">🔔 PopSlack</div>
-        <div class="p-desc">Custom sounds for every Slack notification. Rule-based matching for DMs, mentions, and channels. Uses macOS Accessibility API with no credentials and no network calls.</div>
-        <div class="p-tags">
-          <span class="tag">Swift</span>
-          <span class="tag">macOS</span>
-          <span class="tag">AX API</span>
-          <span class="tag">Menu Bar</span>
-          <span class="tag">LaunchAgent</span>
-        </div>
-        <div class="p-links">
-          <a href="https://deveshrohan.github.io/PopSlack/" target="_blank"
-             onclick="gtag('event','popslack_site',{event_category:'projects'});">Live site →</a>
-          <a href="https://github.com/deveshrohan/PopSlack/releases" target="_blank" class="purple"
-             onclick="gtag('event','popslack_download',{event_category:'projects'});">Download →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="p-card" id="card-kaaku" style="transition-delay:0.24s;">
-      <div class="p-preview p-preview-kaaku">
-        <div class="kaaku-glow"></div>
-        <div class="kaaku-buddy">🏴‍☠️</div>
-        <div class="kaaku-chars">🤖 ⚡ 🦌 ⚔️ 🐼</div>
-      </div>
-      <div class="p-body">
-        <div class="p-name">🪆 Kaaku</div>
-        <div class="p-desc">A 3D animated desktop buddy with a system event bus. 6 GLB-rigged characters, built-in todo list, Slack sync with AI task classification, and Claude Code permission controls — Allow or Deny tool calls via floating notification bubbles without leaving your flow.</div>
-        <div class="p-tags">
-          <span class="tag">Electron</span>
-          <span class="tag">React Three Fiber</span>
-          <span class="tag">Three.js</span>
-          <span class="tag">GLB / Blender</span>
-          <span class="tag">Framer Motion</span>
-          <span class="tag">Slack API</span>
-          <span class="tag">Unix Sockets</span>
-          <span class="tag">macOS</span>
-        </div>
-        <div class="p-links">
-          <a href="https://deveshrohan.github.io/kaaku" target="_blank"
-             onclick="gtag('event','kaaku_site',{event_category:'projects'});">Live site →</a>
-          <a href="https://github.com/deveshrohan/kaaku/releases" target="_blank" class="purple"
-             onclick="gtag('event','kaaku_download',{event_category:'projects'});">Download →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── SKILLS ── -->
-<section id="skills" style="padding-top:0;">
-  <div class="section-label">// skills</div>
-  <div class="section-title reveal">The <em>toolkit.</em></div>
-  <div class="skills-grid">
-    <div class="sk-group">
-      <div class="sk-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        <div class="sk-title" style="margin-bottom:0;">Product Management</div>
-      </div>
-      <div class="sk-tags">
-        <span class="sk-tag">Product Strategy</span>
-        <span class="sk-tag">Roadmapping</span>
-        <span class="sk-tag">PRD Writing</span>
-        <span class="sk-tag">User Research</span>
-        <span class="sk-tag">A/B Testing</span>
-        <span class="sk-tag">OKRs</span>
-        <span class="sk-tag">Agile / Scrum</span>
-        <span class="sk-tag">Go-to-Market</span>
-        <span class="sk-tag">0→1</span>
-      </div>
-    </div>
-    <div class="sk-group" style="transition-delay:0.1s;">
-      <div class="sk-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-        <div class="sk-title" style="margin-bottom:0;">AI / Data</div>
-      </div>
-      <div class="sk-tags">
-        <span class="sk-tag">LLM Integration</span>
-        <span class="sk-tag">ML Pipelines</span>
-        <span class="sk-tag">Data Analytics</span>
-        <span class="sk-tag">SQL</span>
-        <span class="sk-tag">Funnel Analysis</span>
-        <span class="sk-tag">Eval Frameworks</span>
-        <span class="sk-tag">Cohort Analysis</span>
-        <span class="sk-tag">Behavioral Analytics</span>
-      </div>
-    </div>
-    <div class="sk-group" style="transition-delay:0.2s;">
-      <div class="sk-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        <div class="sk-title" style="margin-bottom:0;">Engineering</div>
-      </div>
-      <div class="sk-tags">
-        <span class="sk-tag">Swift / SwiftUI</span>
-        <span class="sk-tag">Python</span>
-        <span class="sk-tag">C / C++</span>
-        <span class="sk-tag">REST APIs</span>
-        <span class="sk-tag">GraphQL</span>
-        <span class="sk-tag">System Design</span>
-        <span class="sk-tag">DRM / Security</span>
-        <span class="sk-tag">macOS Dev</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── EDUCATION ── -->
-<section id="education" style="padding-top:0;">
-  <div class="section-label">// education</div>
-  <div class="section-title reveal">Where I was <em>shaped.</em></div>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-inst">Indian Institute of Management, Kozhikode</div>
-      <div class="edu-degree">MBA · General Management</div>
-      <div class="edu-date">Jun 2019 – May 2021</div>
-      <div class="edu-badge">Top 100 Competitive Leaders in India</div>
-    </div>
-    <div class="edu-card" style="transition-delay:0.1s;">
-      <div class="edu-inst">National Institute of Technology, Hamirpur</div>
-      <div class="edu-degree">B.Tech · Computer Science & Engineering</div>
-      <div class="edu-date">Jun 2012 – May 2016</div>
-      <div class="edu-badge">IEEE Published · India / US Patent</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── AWARDS ── -->
-<section style="padding-top:0;">
-  <div class="section-label">// recognition</div>
-  <div class="section-title reveal">Moments that <em>mattered.</em></div>
-  <div class="awards-list">
-    <div class="award-item">
-      <div class="award-icon">🏆</div>
-      <div class="award-text">
-        <div class="award-title"><strong>Ring of Honour,</strong> highest annual recognition for exceptional product leadership</div>
-        <div class="award-org">Recur Club</div>
-      </div>
-      <div class="award-year">2025</div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">⭐</div>
-      <div class="award-text">
-        <div class="award-title"><strong>Rising Star Award,</strong> quarterly recognition for exceptional performance</div>
-        <div class="award-org">NoBroker</div>
-      </div>
-      <div class="award-year">2022</div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">🥇</div>
-      <div class="award-text">
-        <div class="award-title"><strong>Top 100 Competitive Leaders</strong> across all B-schools and engineering colleges in India</div>
-        <div class="award-org">Dare2Compete</div>
-      </div>
-      <div class="award-year">2021</div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">🎯</div>
-      <div class="award-text">
-        <div class="award-title"><strong>Winner, Myntra PM Challenge</strong> among 4,500+ participants</div>
-        <div class="award-org">Myntra</div>
-      </div>
-      <div class="award-year">2020</div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">🌟</div>
-      <div class="award-text">
-        <div class="award-title"><strong>Employee of the Quarter,</strong> recognized among 1,000+ employees</div>
-        <div class="award-org">Samsung Electronics</div>
-      </div>
-      <div class="award-year">2018</div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">📄</div>
-      <div class="award-text">
-        <div class="award-title"><strong>IEEE Publication</strong> on AI-assisted architectural space layout generation using genetic algorithms</div>
-        <div class="award-org">NIT Hamirpur</div>
-      </div>
-      <div class="award-year">2017</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BEYOND ── -->
-<section>
-  <div class="section-label">// beyond the whiteboard</div>
-  <div class="section-title reveal">The human <em>behind the PM.</em></div>
-  <div class="beyond-grid">
-    <div class="beyond-card">
-      <div class="beyond-icon">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="18" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-          <path d="M13 26 L17 18 L20 22 L24 14 L28 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="25" cy="11" r="3" fill="#10b981" opacity="0.6"/>
-        </svg>
-      </div>
-      <div class="beyond-ttl">Marathon Running</div>
-      <div class="beyond-sub">Trains the same way I ship: consistent, data-driven, one km at a time.</div>
-    </div>
-    <div class="beyond-card" style="transition-delay:0.1s;">
-      <div class="beyond-icon">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <polygon points="20,5 35,32 5,32" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.06)"/>
-          <polygon points="20,5 28,20 12,20" fill="rgba(0,212,255,0.1)"/>
-          <line x1="5" y1="32" x2="35" y2="32" stroke="#00d4ff" stroke-width="1.5"/>
-        </svg>
-      </div>
-      <div class="beyond-ttl">Himalayan Trekking</div>
-      <div class="beyond-sub">Where I reset, recalibrate, and remember what real long-term thinking looks like.</div>
-    </div>
-    <div class="beyond-card" style="transition-delay:0.2s;">
-      <div class="beyond-icon">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="8" y="8" width="10" height="26" rx="2" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.07)"/>
-          <rect x="22" y="8" width="10" height="26" rx="2" stroke="#a855f7" stroke-width="1.5" fill="rgba(168,85,247,0.07)"/>
-          <line x1="10" y1="14" x2="16" y2="14" stroke="#a855f7" stroke-width="1"/>
-          <line x1="10" y1="18" x2="16" y2="18" stroke="#a855f7" stroke-width="1"/>
-          <line x1="10" y1="22" x2="16" y2="22" stroke="#a855f7" stroke-width="1"/>
-          <line x1="24" y1="14" x2="30" y2="14" stroke="#a855f7" stroke-width="1"/>
-          <line x1="24" y1="18" x2="30" y2="18" stroke="#a855f7" stroke-width="1"/>
-        </svg>
-      </div>
-      <div class="beyond-ttl">Reading</div>
-      <div class="beyond-sub">Product strategy, behavioral economics, non-fiction. Always building a new mental model.</div>
-    </div>
-    <div class="beyond-card" style="transition-delay:0.3s;">
-      <div class="beyond-icon">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="15" stroke="#f97316" stroke-width="1.5" fill="rgba(249,115,22,0.06)"/>
-          <polygon points="20,8 23,16 32,16 25,21 28,30 20,25 12,30 15,21 8,16 17,16" stroke="#f97316" stroke-width="1" fill="rgba(249,115,22,0.1)"/>
-        </svg>
-      </div>
-      <div class="beyond-ttl">Football</div>
-      <div class="beyond-sub">The original team sport. Tactics, improvisation, and knowing when to pass.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER WAVE ── -->
-<div class="footer-wave">
-  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;display:block;">
-    <path d="M0 40 C240 10 480 60 720 30 C960 0 1200 50 1440 20 L1440 60 L0 60 Z" fill="#080c16" opacity="0.5"/>
-    <path d="M0 50 C360 20 720 55 1080 25 C1260 10 1380 45 1440 35 L1440 60 L0 60 Z" fill="#1c2333" opacity="0.3"/>
-  </svg>
 </div>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-name">Devesh Rohan</div>
-  <div class="footer-sub">// Head of Product · Bengaluru, India</div>
-  <div class="footer-links">
-    <a href="mailto:deveshrohan@gmail.com"
-       onclick="gtag('event','email_click',{event_category:'footer'});">✉ deveshrohan@gmail.com</a>
-    <a href="https://linkedin.com/in/deveshrohan" target="_blank"
-       onclick="gtag('event','linkedin_click',{event_category:'footer'});">in LinkedIn</a>
-    <a href="https://github.com/deveshrohan" target="_blank"
-       onclick="gtag('event','github_click',{event_category:'footer'});">⌥ GitHub</a>
+<!-- Panel 2: Experience -->
+<div class="panel" data-index="2">
+  <div class="panel-inner panel-content panel-wide">
+    <div class="panel-km">KM 2</div>
+    <h2>Where I've <em>built things.</em></h2>
+    <div class="exp-grid">
+      <div class="exp-card exp-current">
+        <div class="exp-badge">Current</div>
+        <h3>Recur Club</h3>
+        <p class="exp-role">Head of Products</p>
+        <p>INR 1500 Cr+ annual disbursements · 500+ borrowers · No-code partner platform generating 10% monthly leads</p>
+      </div>
+      <div class="exp-card">
+        <h3>NoBroker</h3>
+        <p class="exp-role">Product Manager</p>
+        <p>Gaming DAU 10x · MAU 6x · 80% retention improvement</p>
+      </div>
+      <div class="exp-card">
+        <h3>Samsung Electronics</h3>
+        <p class="exp-role">Software Engineer → Patent Inventor</p>
+        <p>7+ DRM modules · India/US patent · Vulnerability management tool</p>
+      </div>
+    </div>
   </div>
-  <div class="footer-copy">Built with curiosity · © 2026 Devesh Rohan</div>
-</footer>
+</div>
 
-<script>
-/* ── CUSTOM CURSOR ── */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
+<!-- Panel 3: Projects -->
+<div class="panel" data-index="3">
+  <div class="panel-inner panel-content panel-wide">
+    <div class="panel-km">KM 3</div>
+    <h2>Things I build <em>at night.</em></h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-icon">🔥</div>
+        <h3>Notchd</h3>
+        <p>GitHub streak in your MacBook notch. Swift, SwiftUI, GitHub GraphQL.</p>
+        <a href="https://deveshrohan.github.io/notchd" target="_blank">View →</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🔔</div>
+        <h3>PopSlack</h3>
+        <p>Custom sounds for every Slack notification. Privacy-first, zero API keys.</p>
+        <a href="https://deveshrohan.github.io/PopSlack/" target="_blank">View →</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🪆</div>
+        <h3>Kaaku</h3>
+        <p>3D animated desktop buddy. React Three Fiber, GLB models, Slack sync.</p>
+        <a href="https://deveshrohan.github.io/kaaku" target="_blank">View →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx - 5 + 'px';
-  cursor.style.top  = my - 5 + 'px';
-});
-(function animRing() {
-  rx += (mx - rx - 19) * 0.12;
-  ry += (my - ry - 19) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a,button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'scale(2.5)';
-    ring.style.transform   = 'scale(1.6)';
-    ring.style.borderColor = 'rgba(0,212,255,0.8)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = '';
-    ring.style.transform   = '';
-    ring.style.borderColor = 'rgba(0,212,255,0.4)';
-  });
-});
+<!-- Panel 4: Skills & Education -->
+<div class="panel" data-index="4">
+  <div class="panel-inner panel-content">
+    <div class="panel-km">KM 4</div>
+    <h2>The <em>toolkit.</em></h2>
+    <div class="skill-cols">
+      <div>
+        <h4>Product</h4>
+        <p>Strategy · Roadmapping · PRDs · User Research · A/B Testing · OKRs · GTM · 0→1</p>
+      </div>
+      <div>
+        <h4>AI / Data</h4>
+        <p>LLM Integration · ML Pipelines · SQL · Eval Frameworks · Funnel & Cohort Analysis</p>
+      </div>
+      <div>
+        <h4>Engineering</h4>
+        <p>Swift · Python · C/C++ · GraphQL · System Design · DRM · macOS Dev</p>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-pill"><strong>IIM Kozhikode</strong> MBA</div>
+      <div class="edu-pill"><strong>NIT Hamirpur</strong> B.Tech CS</div>
+    </div>
+  </div>
+</div>
 
-/* ── SCROLL PROGRESS ── */
-const pb = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  pb.style.width = (scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
-});
+<!-- Panel 5: Take Control -->
+<div class="panel" data-index="5">
+  <div class="panel-inner panel-hero panel-game">
+    <div class="hero-tag">ಬದುಕಿ ಉಳಿಯಿರಿ</div>
+    <h1 class="game-title">Take the <span class="gradient">Wheel</span></h1>
+    <p class="hero-role">You've seen the journey. Now survive the streets.</p>
+    <div class="game-controls">
+      <span>← → steer</span>
+      <span>dodge obstacles</span>
+      <span>3 lives</span>
+    </div>
+    <button id="btn-play" class="btn-play">🛺 Start Riding</button>
+  </div>
+</div>
 
-/* ── HERO PARTICLE CANVAS ── */
-const canvas = document.getElementById('hero-canvas');
-const ctx    = canvas.getContext('2d');
-const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
-resize(); window.addEventListener('resize', resize);
+<!-- Game HUD (visible during free-flow game) -->
+<div id="game-hud" class="hidden">
+  <div id="hud-lives"></div>
+  <div id="hud-score"></div>
+  <button id="hud-exit">✕</button>
+</div>
 
-class Particle {
-  constructor() { this.init(); }
-  init() {
-    this.x  = Math.random() * canvas.width;
-    this.y  = Math.random() * canvas.height;
-    this.r  = Math.random() * 1.4 + 0.3;
-    this.vx = (Math.random() - 0.5) * 0.28;
-    this.vy = (Math.random() - 0.5) * 0.28;
-    this.a  = Math.random() * 0.45 + 0.08;
-    const t = Math.random();
-    this.c  = t > 0.72 ? '#00d4ff' : t > 0.48 ? '#a855f7' : '#ffffff';
-  }
-  step() {
-    this.x += this.vx; this.y += this.vy;
-    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.init();
-  }
-  draw() {
-    ctx.save(); ctx.globalAlpha = this.a;
-    ctx.fillStyle = this.c;
-    ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
-    ctx.restore();
-  }
-}
-const pts = Array.from({length:130}, () => new Particle());
+<!-- Game over splash -->
+<div id="splash" class="hidden">
+  <div class="splash-inner">
+    <p class="splash-kan">ಧನ್ಯವಾದಗಳು</p>
+    <h2 id="splash-title">GAME OVER</h2>
+    <p id="splash-score"></p>
+    <button id="splash-retry" class="btn-play">🛺 Play Again</button>
+    <button id="splash-back" class="btn-ghost">← Back</button>
+  </div>
+</div>
 
-(function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  pts.forEach(p => { p.step(); p.draw(); });
-  for (let i = 0; i < pts.length; i++) {
-    for (let j = i+1; j < pts.length; j++) {
-      const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
-      if (d < 75) {
-        ctx.save(); ctx.globalAlpha = (1 - d/75) * 0.07;
-        ctx.strokeStyle = '#00d4ff'; ctx.lineWidth = 0.5;
-        ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y);
-        ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke(); ctx.restore();
-      }
-    }
-  }
-  requestAnimationFrame(draw);
-})();
-
-/* ── TYPEWRITER ── */
-const roles = ['Head of Product','Fintech Builder','ML × Product','Patent Inventor','IIM Kozhikode','Marathon Runner'];
-let ri = 0, ci = 0, del = false;
-const tw = document.getElementById('tw-text');
-function type() {
-  const w = roles[ri];
-  if (!del) {
-    tw.textContent = w.slice(0, ++ci);
-    if (ci === w.length) { del = true; setTimeout(type, 2200); return; }
-  } else {
-    tw.textContent = w.slice(0, --ci);
-    if (ci === 0) { del = false; ri = (ri+1) % roles.length; }
-  }
-  setTimeout(type, del ? 45 : 85);
-}
-type();
-
-/* ── COUNTER ANIMATION ── */
-function counter(el) {
-  const target = +el.dataset.target, suf = el.dataset.suffix || '';
-  const t0 = performance.now();
-  (function tick(now) {
-    const p = Math.min((now - t0) / 2000, 1);
-    const e = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.floor(e * target) + suf;
-    if (p < 1) requestAnimationFrame(tick);
-    else el.textContent = target + suf;
-  })(t0);
-}
-new IntersectionObserver((entries, obs) => {
-  if (entries[0].isIntersecting) {
-    document.querySelectorAll('.metric-number').forEach(counter);
-    obs.disconnect();
-  }
-}, { threshold: 0.3 }).observe(document.getElementById('metrics'));
-
-/* ── SCROLL REVEAL ── */
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll(
-  '.reveal,.timeline-item,.p-card,.sk-group,.edu-card,.award-item,.beyond-card'
-).forEach(el => revObs.observe(el));
-
-/* ── 3D TILT ON PROJECT CARDS ── */
-document.querySelectorAll('.p-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform = `perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-4px)`;
-  });
-  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-});
-
-/* ── WORK GITHUB GRAPH ── */
-(function buildWorkGraph() {
-  const wrap = document.getElementById('work-github-graph');
-  if (!wrap) return;
-  const grid = document.createElement('div');
-  grid.className = 'gg-grid';
-  // Simulate a growing contribution pattern (lighter early, heavier recent)
-  const weeks = 26;
-  for (let w = 0; w < weeks; w++) {
-    const col = document.createElement('div');
-    col.className = 'gg-col';
-    for (let d = 0; d < 7; d++) {
-      const cell = document.createElement('div');
-      cell.className = 'gg-cell';
-      // More contributions in recent weeks
-      const recency = w / weeks;
-      const rand = Math.random();
-      let lvl;
-      if (rand < 0.35 - recency * 0.25) lvl = 0;
-      else if (rand < 0.55) lvl = 1;
-      else if (rand < 0.72) lvl = 2;
-      else if (rand < 0.88) lvl = 3;
-      else lvl = 4;
-      const colors = ['#161b22','#0e4429','#006d32','#26a641','#39d353'];
-      cell.style.background = colors[lvl];
-      col.appendChild(cell);
-    }
-    grid.appendChild(col);
-  }
-  wrap.appendChild(grid);
-})();
-
-/* ── NOTCH MINI GRID ── */
-const grid = document.getElementById('notch-mini');
-if (grid) {
-  const lvls = ['#161b22','#0e4429','#006d32','#26a641','#39d353'];
-  const wts  = [0.22, 0.24, 0.22, 0.17, 0.15];
-  function pickLvl() {
-    let r = Math.random(), acc = 0;
-    for (let i = 0; i < wts.length; i++) { acc += wts[i]; if (r < acc) return lvls[i]; }
-    return lvls[0];
-  }
-  for (let w = 0; w < 28; w++) {
-    const col = document.createElement('div');
-    col.className = 'nmg-col';
-    for (let d = 0; d < 7; d++) {
-      const cell = document.createElement('div');
-      cell.className = 'nmg-cell';
-      cell.style.background = pickLvl();
-      col.appendChild(cell);
-    }
-    grid.appendChild(col);
-  }
-}
-</script>
+<script type="module" src="js/game3d.js"></script>
 </body>
 </html>
