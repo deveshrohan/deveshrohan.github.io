@@ -132,10 +132,10 @@ function buildSky(night) {
     grd.addColorStop(0.6, '#0a0a20');
     grd.addColorStop(1, '#101025');
   } else {
-    grd.addColorStop(0, '#1a3355');
-    grd.addColorStop(0.35, '#cc7744');
-    grd.addColorStop(0.6, '#ff9944');
-    grd.addColorStop(1, '#ffcc77');
+    grd.addColorStop(0, '#1a3a66');
+    grd.addColorStop(0.45, '#5588aa');
+    grd.addColorStop(0.75, '#cc9966');
+    grd.addColorStop(1, '#ddbb88');
   }
   ctx.fillStyle = grd;
   ctx.fillRect(0, 0, 4, 512);
@@ -144,7 +144,7 @@ function buildSky(night) {
   if (scene.background?.dispose) scene.background.dispose();
   scene.background = tex;
   // Don't set scene.environment — it causes color shifts on physical materials during movement
-  scene.fog.color.set(night ? 0x080818 : 0xeebb77);
+  scene.fog.color.set(night ? 0x080818 : 0xccbb99);
 }
 
 /* ─── VIGNETTE + COLOR GRADING SHADER ──────────── */
@@ -191,7 +191,7 @@ function init() {
 
   // Scene
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0xeebb77, 0.0018); // match sky horizon color, lower density
+  scene.fog = new THREE.FogExp2(0xccbb99, 0.0006); // very subtle, neutral warm
 
   // Camera
   camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 2000);
