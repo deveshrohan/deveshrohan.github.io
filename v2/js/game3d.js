@@ -108,9 +108,9 @@ function makeSidewalkTex() {
   const c = document.createElement('canvas');
   c.width = 64; c.height = 64;
   const ctx = c.getContext('2d');
-  ctx.fillStyle = '#555';
+  ctx.fillStyle = '#383838';
   ctx.fillRect(0, 0, 64, 64);
-  ctx.strokeStyle = '#4a4a4a';
+  ctx.strokeStyle = '#303030';
   ctx.lineWidth = 1;
   // Tile grid
   for (let x = 0; x < 64; x += 16) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,64); ctx.stroke(); }
@@ -201,7 +201,7 @@ function init() {
   const hemi = new THREE.HemisphereLight(0xffddaa, 0x443322, 0.6);
   scene.add(hemi);
 
-  const sun = new THREE.DirectionalLight(0xffeebb, 2.0);
+  const sun = new THREE.DirectionalLight(0xffeebb, 1.4);
   sun.position.set(-20, 35, 15);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
@@ -1395,7 +1395,7 @@ function recycleRoad(az) {
   let dirty = false;
 
   for (let i = 0; i < roadZs.length; i++) {
-    if (roadZs[i] > az + CHUNK * 0.5) { // recycle sooner for smoother transitions
+    if (roadZs[i] > az + CHUNK * 2.5) { // keep chunks visible far behind camera (bottom of screen shows ground behind car)
       // Find furthest-ahead chunk
       let minZ = Infinity;
       for (let j = 0; j < roadZs.length; j++) { if (roadZs[j] < minZ) minZ = roadZs[j]; }
