@@ -1163,26 +1163,27 @@ function buildDust() {
 function spawnObstacle() {
   const lane = Math.floor(Math.random() * 3);
   const r = Math.random();
-  let geo, mat, y;
+  let geo, mat, y, type;
   if (r > 0.6) {
     // Traffic cone
     geo = new THREE.ConeGeometry(0.45, 1.1, 8);
     mat = new THREE.MeshStandardMaterial({ color: 0xff6600, roughness: 0.5 });
-    y = 0.55;
+    y = 0.55; type = 'cone';
   } else if (r > 0.3) {
-    // Pothole / manhole cover
+    // Pothole
     geo = new THREE.CylinderGeometry(0.85, 0.85, 0.06, 14);
     mat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 1 });
-    y = 0.03;
+    y = 0.03; type = 'pothole';
   } else {
     // Parked auto-rickshaw obstacle
     geo = new THREE.BoxGeometry(1.2, 1.0, 1.6);
     mat = new THREE.MeshStandardMaterial({ color: 0xf5c518, roughness: 0.4 });
-    y = 0.5;
+    y = 0.5; type = 'auto';
   }
   const mesh = new THREE.Mesh(geo, mat);
   mesh.position.set(LANE_X[lane], y, autoGroup.position.z - 140);
   mesh.castShadow = true;
+  mesh.userData.type = type;
   scene.add(mesh);
   obstaclePool.push(mesh);
 }
@@ -1331,16 +1332,32 @@ function updateGame(dt) {
     for (let i = obstaclePool.length - 1; i >= 0; i--) {
       const o = obstaclePool[i];
 
-      // Already hit — animate flying away
+      // Already hit — animate based on type
       if (o.userData.hit) {
-        o.position.x += o.userData.vx * dt * 60;
-        o.position.y += o.userData.vy * dt * 60;
-        o.position.z += o.userData.vz * dt * 60;
-        o.userData.vy -= 0.012; // gravity
-        o.rotation.x += o.userData.spin * dt * 60;
-        o.rotation.z += o.userData.spin * 0.7 * dt * 60;
-        if (o.position.y < -3) {
-          scene.remove(o); o.geometry.dispose(); obstaclePool.splice(i, 1);
+        if (o.userData.type === 'pothole') {
+          // Pothole: flash red then fade, stays in place
+          o.userData.hitTimer -= dt;
+          if (o.userData.hitTimer > 0.3) {
+            o.material.emissive.setHex(0xff2200);
+            o.material.emissiveIntensity = 2.0;
+          } else {
+            o.material.emissive.setHex(0x000000);
+            o.material.emissiveIntensity = 0;
+          }
+          if (o.userData.hitTimer <= 0) {
+            scene.remove(o); o.geometry.dispose(); obstaclePool.splice(i, 1);
+          }
+        } else {
+          // Cones/autos: fly away with physics
+          o.position.x += o.userData.vx * dt * 60;
+          o.position.y += o.userData.vy * dt * 60;
+          o.position.z += o.userData.vz * dt * 60;
+          o.userData.vy -= 0.012;
+          o.rotation.x += o.userData.spin * dt * 60;
+          o.rotation.z += o.userData.spin * 0.7 * dt * 60;
+          if (o.position.y < -3) {
+            scene.remove(o); o.geometry.dispose(); obstaclePool.splice(i, 1);
+          }
         }
         continue;
       }
@@ -1348,13 +1365,19 @@ function updateGame(dt) {
       // Collision check
       if (Math.abs(o.position.z - autoGroup.position.z) < 1.5 && Math.abs(o.position.x - autoGroup.position.x) < 1.3) {
         lives--; shakeAmt = 0.5;
-        // Launch obstacle: fly sideways + up + spin
-        const dir = o.position.x > autoGroup.position.x ? 1 : -1;
         o.userData.hit = true;
-        o.userData.vx = dir * (0.15 + Math.random() * 0.12);
-        o.userData.vy = 0.18 + Math.random() * 0.1;
-        o.userData.vz = 0.08 + Math.random() * 0.06;
-        o.userData.spin = (Math.random() - 0.5) * 0.3;
+
+        if (o.userData.type === 'pothole') {
+          // Pothole stays in place, just flashes
+          o.userData.hitTimer = 0.6;
+        } else {
+          // Launch obstacle sideways + up + spin
+          const dir = o.position.x > autoGroup.position.x ? 1 : -1;
+          o.userData.vx = dir * (0.15 + Math.random() * 0.12);
+          o.userData.vy = 0.18 + Math.random() * 0.1;
+          o.userData.vz = 0.08 + Math.random() * 0.06;
+          o.userData.spin = (Math.random() - 0.5) * 0.3;
+        }
         if (lives <= 0) { phase = PH.OVER; speed = 0; showGameOver(); }
         updateHUD(); continue;
       }
